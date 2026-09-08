@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Site Mouve
 
-## Getting Started
+Site institucional da Mouve Creative. Next.js + TypeScript + Tailwind + shadcn/ui, 100% estático.
 
-First, run the development server:
+## Rodar localmente
 
 ```bash
+npm install
+cp .env.example .env.local   # depois edite com o número real de WhatsApp
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Antes de publicar
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Edite `.env.local` (e a variável de ambiente equivalente na Vercel) com o número
+   real de WhatsApp Business da Mouve, formato `55DDDNÚMERO` sem símbolos.
+2. Se a identidade visual mudar, atualize os arquivos em `public/brand/` (copiados de
+   `Downloads/Mouve Identidade/` na Task 12) e o favicon em `app/favicon.ico`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Depois do deploy
 
-## Learn More
+Rode um Lighthouse (Chrome DevTools → aba Lighthouse, ou `npx lighthouse
+https://seu-dominio.vercel.app --view`) contra a URL publicada. Sendo um site
+estático sem imagens pesadas, performance e acessibilidade devem vir altas por
+padrão — qualquer nota abaixo de 90 indica algo a investigar (imagem sem
+`width`/`height`, fonte bloqueando render, etc.), não é esperado.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Conecte este repositório na Vercel (Import Project). A Vercel detecta Next.js
+automaticamente; configure `NEXT_PUBLIC_MOUVE_WHATSAPP` em Project Settings →
+Environment Variables antes do primeiro deploy.
