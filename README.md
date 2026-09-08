@@ -22,7 +22,7 @@ npm run dev
 Rode um Lighthouse (Chrome DevTools → aba Lighthouse, ou `npx lighthouse
 https://seu-dominio.vercel.app --view`) contra a URL publicada. Sendo um site
 estático sem imagens pesadas, performance e acessibilidade devem vir altas por
-padrão — qualquer nota abaixo de 90 indica algo a investigar (imagem sem
+padrão, qualquer nota abaixo de 90 indica algo a investigar (imagem sem
 `width`/`height`, fonte bloqueando render, etc.), não é esperado.
 
 ## Deploy
