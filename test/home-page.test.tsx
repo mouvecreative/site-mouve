@@ -16,4 +16,9 @@ describe("Home page", () => {
     expect(screen.getByText("15")).toBeInTheDocument();
     expect(screen.getByText("98%")).toBeInTheDocument();
   });
+
+  it("renders the tone-on-tone symbol behind the hero", () => {
+    render(<Home />);
+    expect(document.querySelector('img[alt=""]')).toBeInTheDocument();
+  });
 });

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MethodStep } from "@/components/method-step";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 
@@ -28,7 +29,14 @@ const STEPS = [
 export default function Home() {
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-24 px-6 py-20">
-      <section className="flex flex-col gap-6">
+      <section className="relative flex flex-col gap-6 overflow-hidden">
+        <Image
+          src="/brand/symbol-ink.svg"
+          alt=""
+          width={480}
+          height={480}
+          className="pointer-events-none absolute -right-24 -top-24 opacity-5"
+        />
         <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-brand-ink sm:text-5xl">
           Marcas fortes não acontecem por acaso.
         </h1>
