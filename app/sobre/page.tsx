@@ -44,7 +44,7 @@ export default function Sobre() {
               ))}
             </ul>
           </div>
-          <div className="rounded-lg border-2 border-brand-blue bg-white p-8">
+          <div className="rounded-lg border-2 border-brand-blue bg-brand-paper p-8">
             <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-blue">
               Mouve
             </h3>
