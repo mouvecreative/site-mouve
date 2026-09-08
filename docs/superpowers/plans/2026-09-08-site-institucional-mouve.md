@@ -271,7 +271,7 @@ EOF
 - Test: `test/whatsapp-button.test.tsx`, `test/section-heading.test.tsx`
 
 **Interfaces:**
-- Consumes: `buildWhatsAppUrl` (Task 2), shadcn `Button` (Task 1).
+- Consumes: `buildWhatsAppUrl` (Task 2), shadcn `buttonVariants` + `cn` (Task 1).
 - Produces: `<WhatsAppButton message={string} label={string} />`; `<SectionHeading eyebrow={string} title={string} />`. Both consumed by every page task (4–8).
 
 - [ ] **Step 1: Write the failing tests**
@@ -328,8 +328,9 @@ Expected: FAIL — modules not found
 Create `components/whatsapp-button.tsx`:
 
 ```tsx
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { cn } from "@/lib/utils";
 
 export function WhatsAppButton({
   message,
@@ -341,11 +342,17 @@ export function WhatsAppButton({
   variant?: "default" | "outline";
 }) {
   return (
-    <Button asChild size="lg" variant={variant} className="bg-brand-blue hover:bg-brand-blue/90">
-      <a href={buildWhatsAppUrl(message)} target="_blank" rel="noopener noreferrer">
-        {label}
-      </a>
-    </Button>
+    <a
+      href={buildWhatsAppUrl(message)}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={cn(
+        buttonVariants({ variant, size: "lg" }),
+        variant === "default" && "bg-brand-blue hover:bg-brand-blue/90"
+      )}
+    >
+      {label}
+    </a>
   );
 }
 ```
