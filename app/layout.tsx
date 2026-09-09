@@ -11,7 +11,10 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Mouve Creative",
+  title: {
+    default: "Mouve Creative",
+    template: "%s | Mouve Creative",
+  },
   description:
     "Estratégia de marketing digital para marcas que precisam de resultado, não de barulho.",
 };
