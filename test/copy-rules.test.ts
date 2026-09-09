@@ -20,10 +20,11 @@ function collectFiles(dir: string, exts: string[]): string[] {
 }
 
 describe("Site-wide copy rules", () => {
-  it("no file under app/, components/, or README.md uses an em dash", () => {
+  it("no file under app/, components/, lib/, or README.md uses an em dash", () => {
     const files = [
       ...collectFiles(path.join(ROOT, "app"), [".tsx", ".ts", ".md"]),
       ...collectFiles(path.join(ROOT, "components"), [".tsx", ".ts", ".md"]),
+      ...collectFiles(path.join(ROOT, "lib"), [".tsx", ".ts", ".md"]),
       path.join(ROOT, "README.md"),
     ];
     for (const file of files) {
