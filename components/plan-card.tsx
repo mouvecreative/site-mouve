@@ -16,8 +16,8 @@ export function PlanCard({
     <Card
       className={
         highlighted
-          ? "border-brand-blue border-2 bg-brand-paper"
-          : "border-brand-ink/10 bg-brand-paper"
+          ? "border-brand-blue border-2 bg-brand-paper transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(158,122,46,0.5)]"
+          : "border-brand-ink/10 bg-brand-paper transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/40 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.4)]"
       }
     >
       <CardContent className="flex flex-col gap-6 p-8">

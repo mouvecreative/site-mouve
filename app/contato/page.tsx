@@ -25,7 +25,7 @@ export default function Contato() {
         href="https://instagram.com/agencia_mouve"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-brand-paper/70 hover:text-brand-paper"
+        className="relative text-brand-paper/70 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-brand-blue after:transition-all after:duration-300 hover:text-brand-paper hover:after:w-full"
       >
         @agencia_mouve
       </a>
