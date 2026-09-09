@@ -11,16 +11,24 @@ const LINKS = [
 export function Nav() {
   return (
     <header className="border-b border-brand-paper/10 bg-brand-ink">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link
-          href="/"
-          aria-label="Mouve"
-          className="flex items-center transition-opacity hover:opacity-80"
-        >
-          <span className="text-xl font-bold tracking-tight text-brand-paper">MOU</span>
-          <span className="text-xl font-bold tracking-tight text-brand-blue">VE</span>
-        </Link>
-        <nav className="flex flex-wrap gap-4 sm:gap-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-0">
+        <div className="flex items-center justify-between sm:contents">
+          <Link
+            href="/"
+            aria-label="Mouve"
+            className="flex items-center transition-opacity hover:opacity-80"
+          >
+            <span className="text-xl font-bold tracking-tight text-brand-paper">MOU</span>
+            <span className="text-xl font-bold tracking-tight text-brand-blue">VE</span>
+          </Link>
+          <div className="sm:order-3">
+            <WhatsAppButton
+              message="Olá! Vim pelo site e quero saber mais sobre a Mouve."
+              label="Falar com a Mouve"
+            />
+          </div>
+        </div>
+        <nav className="flex flex-wrap gap-4 sm:order-2 sm:gap-8">
           {LINKS.map((link) => (
             <Link
               key={link.href}
@@ -31,10 +39,6 @@ export function Nav() {
             </Link>
           ))}
         </nav>
-        <WhatsAppButton
-          message="Olá! Vim pelo site e quero saber mais sobre a Mouve."
-          label="Falar com a Mouve"
-        />
       </div>
     </header>
   );
