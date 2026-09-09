@@ -9,11 +9,11 @@ describe("Nav", () => {
 
   it("links to all five pages", () => {
     render(<Nav />);
-    expect(screen.getByRole("link", { name: /^Mouveouve$/i })).toBeDefined();
+    expect(screen.getByRole("link", { name: /^Mouve$/i })).toBeDefined();
     expect(document.querySelectorAll(`a[href="/sobre"]`)).toHaveLength(1);
     expect(document.querySelectorAll(`a[href="/metodo"]`)).toHaveLength(1);
     expect(document.querySelectorAll(`a[href="/planos"]`)).toHaveLength(1);
     expect(document.querySelectorAll(`a[href="/contato"]`)).toHaveLength(1);
-    expect(document.querySelector('img[alt="Mouve"]')).toBeInTheDocument();
+    expect(document.querySelector('img[alt=""]')).toBeInTheDocument();
   });
 });
