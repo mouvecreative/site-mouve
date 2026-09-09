@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
+
+export const metadata: Metadata = {
+  title: "Sobre a Mouve",
+  description:
+    "Conheça a Mouve Creative e o diferencial de uma estratégia sob medida, longe do pacote genérico das agências comuns.",
+};
 
 const GENERIC = [
   "Pacote fechado, igual para todo cliente",
@@ -17,6 +24,7 @@ export default function Sobre() {
     <main className="mx-auto flex max-w-6xl flex-col gap-24 px-6 py-20">
       <section className="flex flex-col gap-6">
         <SectionHeading
+          as="h1"
           eyebrow="Sobre a Mouve"
           title="Marcas fortes não acontecem por acaso."
           subtitle="A história é a crença por trás do nome. A estratégia é o que a sustenta."

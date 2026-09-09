@@ -1,10 +1,18 @@
+import type { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+
+export const metadata: Metadata = {
+  title: "Contato",
+  description:
+    "Fale direto com a Mouve Creative pelo WhatsApp, sem formulário e sem espera.",
+};
 
 export default function Contato() {
   return (
     <main className="mx-auto flex max-w-3xl flex-col items-start gap-8 px-6 py-24">
       <SectionHeading
+        as="h1"
         eyebrow="Contato"
         title="Vamos conversar sobre a sua marca."
         subtitle="Sem formulário, sem espera. Fala direto com a gente pelo WhatsApp."

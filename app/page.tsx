@@ -1,29 +1,12 @@
 import Image from "next/image";
 import { MethodStep } from "@/components/method-step";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { METHOD_STEPS } from "@/lib/method-steps";
 
 const STATS: [string, string][] = [
   ["27", "Clientes ativos"],
   ["15", "Segmentos atendidos"],
   ["98%", "Taxa de retenção"],
-];
-
-const STEPS = [
-  {
-    number: "01",
-    title: "Diagnóstico",
-    description: "Entendemos sua marca, seu mercado e onde estão as oportunidades reais.",
-  },
-  {
-    number: "02",
-    title: "Estratégia",
-    description: "Definimos posicionamento, metas e plano de ação, sem achismo.",
-  },
-  {
-    number: "03",
-    title: "Execução",
-    description: "Colocamos no ar: criativos, mídia, conteúdo e acompanhamento constante.",
-  },
 ];
 
 export default function Home() {
@@ -51,21 +34,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="grid grid-cols-1 gap-10 sm:grid-cols-3">
+      <dl className="grid grid-cols-1 gap-10 sm:grid-cols-3">
         {STATS.map(([value, label]) => (
           <div key={label} className="flex flex-col gap-1">
-            <span className="text-5xl font-semibold text-brand-blue">{value}</span>
-            <span className="text-sm font-semibold uppercase tracking-widest text-brand-ink/60">
+            <dt className="order-2 text-sm font-semibold uppercase tracking-widest text-brand-ink/60">
               {label}
-            </span>
+            </dt>
+            <dd className="order-1 text-5xl font-semibold text-brand-blue">{value}</dd>
           </div>
         ))}
-      </section>
+      </dl>
 
-      <section className="grid grid-cols-1 gap-10 sm:grid-cols-3">
-        {STEPS.map((step) => (
-          <MethodStep key={step.number} {...step} />
-        ))}
+      <section className="flex flex-col gap-10">
+        <h2 className="text-2xl font-semibold text-brand-ink">Como trabalhamos</h2>
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
+          {METHOD_STEPS.map((step) => (
+            <MethodStep key={step.number} {...step} />
+          ))}
+        </div>
       </section>
 
       <section className="flex flex-col items-start gap-4 rounded-lg bg-brand-ink px-8 py-12 text-brand-paper">

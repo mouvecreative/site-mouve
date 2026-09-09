@@ -1,32 +1,23 @@
+import type { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { MethodStep } from "@/components/method-step";
+import { METHOD_STEPS } from "@/lib/method-steps";
+
+export const metadata: Metadata = {
+  title: "Método",
+  description:
+    "Nosso processo de diagnóstico, estratégia e execução, focado em métricas que realmente pagam o boleto.",
+};
 
 const EGO = ["Seguidores", "Curtidas", "Alcance orgânico"];
 const BOLETO = ["Leads qualificados", "Custo por aquisição", "Taxa de retenção"];
-
-const STEPS = [
-  {
-    number: "01",
-    title: "Diagnóstico",
-    description: "Entendemos sua marca, seu mercado e onde estão as oportunidades reais.",
-  },
-  {
-    number: "02",
-    title: "Estratégia",
-    description: "Definimos posicionamento, metas e plano de ação, sem achismo.",
-  },
-  {
-    number: "03",
-    title: "Execução",
-    description: "Colocamos no ar: criativos, mídia, conteúdo e acompanhamento constante.",
-  },
-];
 
 export default function Metodo() {
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-24 px-6 py-20">
       <section className="flex flex-col gap-10">
         <SectionHeading
+          as="h1"
           eyebrow="Métricas"
           title="Seguidores não pagam boleto."
           subtitle="As métricas que importam de verdade e as que só alimentam o ego."
@@ -64,7 +55,7 @@ export default function Metodo() {
           subtitle="Spoiler: o primeiro post é a última etapa."
         />
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
-          {STEPS.map((step) => (
+          {METHOD_STEPS.map((step) => (
             <MethodStep key={step.number} {...step} />
           ))}
         </div>

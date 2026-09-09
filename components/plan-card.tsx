@@ -28,8 +28,8 @@ export function PlanCard({
         ) : null}
         <h3 className="text-2xl font-semibold text-brand-ink">{name}</h3>
         <ul className="flex flex-col gap-3">
-          {items.map((item) => (
-            <li key={item} className="flex gap-2 text-brand-ink/80">
+          {items.map((item, i) => (
+            <li key={i} className="flex gap-2 text-brand-ink/80">
               <span aria-hidden="true" className="text-brand-blue">
                 ✓
               </span>

@@ -15,7 +15,7 @@ npm run dev
 1. Edite `.env.local` (e a variável de ambiente equivalente na Vercel) com o número
    real de WhatsApp Business da Mouve, formato `55DDDNÚMERO` sem símbolos.
 2. Se a identidade visual mudar, atualize os arquivos em `public/brand/` (copiados de
-   `Downloads/Mouve Identidade/` na Task 12) e o favicon em `app/favicon.ico`.
+   `Downloads/Mouve Identidade/` na Task 12) e o favicon em `app/icon.svg`.
 
 ## Depois do deploy
 

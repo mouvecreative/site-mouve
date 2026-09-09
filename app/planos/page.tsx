@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { PlanCard } from "@/components/plan-card";
+
+export const metadata: Metadata = {
+  title: "Planos e Investimento",
+  description:
+    "Conheça os planos Essencial, Crescimento e Referência e escolha o ideal para o momento da sua marca.",
+};
 
 const PLANS = [
   {
@@ -48,6 +55,7 @@ export default function Planos() {
     <main className="mx-auto flex max-w-6xl flex-col gap-24 px-6 py-20">
       <section className="flex flex-col gap-10">
         <SectionHeading
+          as="h1"
           eyebrow="O que você leva"
           title="Você não contrata posts. Contrata resultado."
           subtitle="Juntas, essas entregas substituem freelancers soltos e um time interno inteiro."

@@ -17,7 +17,7 @@ export function Nav() {
           <Image src="/brand/symbol-blue.svg" alt="" width={28} height={28} />
           <span className="text-xl font-semibold text-brand-ink">ouve</span>
         </Link>
-        <nav className="hidden gap-8 sm:flex">
+        <nav className="flex flex-wrap gap-4 sm:gap-8">
           {LINKS.map((link) => (
             <Link
               key={link.href}
