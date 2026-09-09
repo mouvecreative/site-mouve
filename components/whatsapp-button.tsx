@@ -40,7 +40,7 @@ export function WhatsAppButton({
       <span
         aria-hidden="true"
         className={cn(
-          "absolute left-[20%] top-[40%] h-2 w-2 rounded-full transition-all duration-300 group-hover:left-0 group-hover:top-0 group-hover:h-full group-hover:w-full",
+          "absolute left-[20%] top-[40%] h-2 w-2 rounded-full opacity-0 transition-all duration-300 group-hover:left-0 group-hover:top-0 group-hover:h-full group-hover:w-full group-hover:opacity-100",
           variant === "default" && "bg-brand-ink",
           variant === "outline" && "bg-brand-blue"
         )}
