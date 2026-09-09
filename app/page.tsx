@@ -1,3 +1,4 @@
+import { Hero } from "@/components/hero";
 import { MethodStep } from "@/components/method-step";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { METHOD_STEPS } from "@/lib/method-steps";
@@ -11,20 +12,7 @@ const STATS: [string, string][] = [
 export default function Home() {
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-24 px-6 py-20">
-      <section className="flex flex-col gap-6">
-        <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-brand-paper sm:text-5xl">
-          Marcas fortes não acontecem por acaso.
-        </h1>
-        <p className="max-w-xl text-lg text-brand-paper/70">
-          A história é a crença por trás do nome. A estratégia é o que a sustenta.
-        </p>
-        <div>
-          <WhatsAppButton
-            message="Olá! Vim pelo site e quero saber mais sobre a Mouve."
-            label="Falar com a Mouve"
-          />
-        </div>
-      </section>
+      <Hero />
 
       <dl className="grid grid-cols-1 gap-10 sm:grid-cols-3">
         {STATS.map(([value, label]) => (

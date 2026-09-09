@@ -10,8 +10,9 @@ describe("Home page", () => {
   it("renders the hero headline and the three credibility numbers", () => {
     render(<Home />);
     expect(
-      screen.getByRole("heading", { name: /Marcas fortes não acontecem por acaso\./ })
+      screen.getByRole("heading", { name: /Construímos marcas/ })
     ).toBeInTheDocument();
+    expect(screen.getByText("fortes.")).toBeInTheDocument();
     expect(screen.getByText("27")).toBeInTheDocument();
     expect(screen.getByText("15")).toBeInTheDocument();
     expect(screen.getByText("98%")).toBeInTheDocument();
