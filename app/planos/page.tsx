@@ -62,7 +62,7 @@ export default function Planos() {
         />
         <ul className="grid grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-2">
           {VALUE_STACK.map((item) => (
-            <li key={item} className="flex gap-2 font-medium text-brand-ink">
+            <li key={item} className="flex gap-2 font-medium text-brand-paper">
               <span aria-hidden="true" className="text-brand-blue">
                 ✓
               </span>
@@ -70,7 +70,7 @@ export default function Planos() {
             </li>
           ))}
         </ul>
-        <p className="rounded-lg bg-brand-ink px-8 py-6 italic text-brand-paper">
+        <p className="rounded-lg bg-brand-blue px-8 py-6 italic text-brand-ink">
           Isso não é uma lista de tarefas. É a estrutura completa por trás de uma marca
           que cresce de verdade.
         </p>

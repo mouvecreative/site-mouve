@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={poppins.variable}>
-      <body className="bg-brand-paper text-brand-ink font-sans antialiased">
+      <body className="bg-brand-ink text-brand-paper font-sans antialiased">
         <Nav />
         {children}
         <Footer />

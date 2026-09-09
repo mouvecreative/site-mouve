@@ -14,6 +14,5 @@ describe("Nav", () => {
     expect(document.querySelectorAll(`a[href="/metodo"]`)).toHaveLength(1);
     expect(document.querySelectorAll(`a[href="/planos"]`)).toHaveLength(1);
     expect(document.querySelectorAll(`a[href="/contato"]`)).toHaveLength(1);
-    expect(document.querySelector('img[alt=""]')).toBeInTheDocument();
   });
 });

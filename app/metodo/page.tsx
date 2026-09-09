@@ -23,7 +23,7 @@ export default function Metodo() {
           subtitle="As métricas que importam de verdade e as que só alimentam o ego."
         />
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <div className="rounded-lg bg-brand-ink p-8 text-brand-paper">
+          <div className="rounded-lg border border-brand-paper/15 p-8 text-brand-paper">
             <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-paper/60">
               Alimentam o ego
             </h3>

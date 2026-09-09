@@ -10,7 +10,7 @@ const LINKS = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-brand-ink/10 bg-brand-ink py-10 text-brand-paper">
+    <footer className="border-t border-brand-paper/10 bg-brand-ink py-10 text-brand-paper">
       <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 sm:flex-row sm:items-center sm:justify-between">
         <span className="text-lg font-semibold">Mouve</span>
         <nav className="flex flex-wrap gap-4">

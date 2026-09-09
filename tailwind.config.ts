@@ -6,9 +6,10 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          blue: "#0F0FDF",
-          ink: "#16181F",
-          paper: "#F6F4EF",
+          blue: "#DECEB4",
+          ink: "#000000",
+          paper: "#DBDBDB",
+          goldDark: "#4D3D23",
         },
       },
       fontFamily: {

@@ -15,11 +15,11 @@ export function SectionHeading({
       <p className="text-sm font-semibold uppercase tracking-widest text-brand-blue">
         {eyebrow}
       </p>
-      <Heading className="mt-2 text-3xl font-semibold leading-tight text-brand-ink sm:text-4xl">
+      <Heading className="mt-2 text-3xl font-semibold leading-tight text-brand-paper sm:text-4xl">
         {title}
       </Heading>
       {subtitle ? (
-        <p className="mt-4 text-lg text-brand-ink/70">{subtitle}</p>
+        <p className="mt-4 text-lg text-brand-paper/70">{subtitle}</p>
       ) : null}
     </div>
   );

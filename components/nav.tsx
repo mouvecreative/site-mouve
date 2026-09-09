@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 
@@ -11,18 +10,18 @@ const LINKS = [
 
 export function Nav() {
   return (
-    <header className="border-b border-brand-ink/10 bg-brand-paper">
+    <header className="border-b border-brand-paper/10 bg-brand-ink">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" aria-label="Mouve" className="flex items-center gap-2">
-          <Image src="/brand/symbol-blue.svg" alt="" width={28} height={28} />
-          <span className="text-xl font-semibold text-brand-ink">ouve</span>
+        <Link href="/" aria-label="Mouve" className="flex items-center">
+          <span className="text-xl font-bold tracking-tight text-brand-paper">MOU</span>
+          <span className="text-xl font-bold tracking-tight text-brand-blue">VE</span>
         </Link>
         <nav className="flex flex-wrap gap-4 sm:gap-8">
           {LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-brand-ink/70 hover:text-brand-ink"
+              className="text-sm font-medium text-brand-paper/70 hover:text-brand-paper"
             >
               {link.label}
             </Link>

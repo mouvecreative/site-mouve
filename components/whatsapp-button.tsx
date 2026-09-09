@@ -18,7 +18,8 @@ export function WhatsAppButton({
       rel="noopener noreferrer"
       className={cn(
         buttonVariants({ variant, size: "lg" }),
-        variant === "default" && "bg-brand-blue hover:bg-brand-blue/90",
+        variant === "default" &&
+          "bg-brand-blue text-brand-ink hover:bg-brand-blue/90",
         variant === "outline" &&
           "border-brand-paper/40 bg-transparent text-brand-paper hover:bg-brand-paper/10 hover:text-brand-paper"
       )}

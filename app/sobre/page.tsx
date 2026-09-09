@@ -29,7 +29,7 @@ export default function Sobre() {
           title="Marcas fortes não acontecem por acaso."
           subtitle="A história é a crença por trás do nome. A estratégia é o que a sustenta."
         />
-        <p className="max-w-2xl text-brand-ink/70">
+        <p className="max-w-2xl text-brand-paper/70">
           A Mouve nasceu para provar que marketing bom não precisa de barulho: precisa
           de estratégia, posicionamento claro e consistência.
         </p>
@@ -42,7 +42,7 @@ export default function Sobre() {
           subtitle="A diferença aparece na estratégia por trás de cada entrega, não na entrega em si."
         />
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <div className="rounded-lg bg-brand-ink p-8 text-brand-paper">
+          <div className="rounded-lg border border-brand-paper/15 p-8 text-brand-paper">
             <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-paper/60">
               Agência genérica
             </h3>
