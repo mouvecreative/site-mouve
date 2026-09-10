@@ -21,7 +21,7 @@ export function Hero() {
     <section className="relative flex flex-col gap-6">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-32 -top-40 h-96 w-96 rounded-full bg-brand-blue opacity-[0.07] blur-[120px]"
+        className="pointer-events-none absolute -left-32 -top-40 h-96 w-96 rounded-full bg-brand-blue opacity-[0.14] blur-[120px]"
       />
       <h1 className="relative max-w-3xl text-4xl font-semibold leading-tight text-brand-paper sm:text-5xl">
         <span>Construímos marcas </span>
