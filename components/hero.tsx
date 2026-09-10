@@ -18,8 +18,12 @@ export function Hero() {
   }, [titleNumber, titles]);
 
   return (
-    <section className="flex flex-col gap-6">
-      <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-brand-paper sm:text-5xl">
+    <section className="relative flex flex-col gap-6">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-32 -top-40 h-96 w-96 rounded-full bg-brand-blue opacity-[0.07] blur-[120px]"
+      />
+      <h1 className="relative max-w-3xl text-4xl font-semibold leading-tight text-brand-paper sm:text-5xl">
         <span>Construímos marcas </span>
         <span className="relative inline-flex h-[1.2em] w-full max-w-xs overflow-hidden align-bottom sm:max-w-sm">
           {titles.map((title, index) => (
