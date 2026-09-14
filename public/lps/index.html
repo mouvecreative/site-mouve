@@ -1,0 +1,291 @@
+<title>Mouve Landing Pages</title>
+<meta name="description" content="A página que transforma seu anúncio em cliente.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --bg:#0E0D0B;
+    --bg-2:#161310;
+    --card:#1B1712;
+    --ink:#EFE9DE;
+    --muted:#A39A8B;
+    --faint:#6E655A;
+    --gold:#C99A46;
+    --gold-hi:#E8C982;
+    --gold-deep:#8A6526;
+    --line:rgba(233,222,200,.10);
+    --line-strong:rgba(233,222,200,.18);
+    --maxw:960px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Manrope",system-ui,sans-serif;font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(120% 60% at 50% -10%, rgba(201,154,70,.10), transparent 60%);
+    background-repeat:no-repeat;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:22px}
+  h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;line-height:1.03;letter-spacing:-.02em;text-wrap:balance;margin:0}
+  p{margin:0}
+  a{color:inherit}
+  .serif{font-family:"Instrument Serif",serif;font-weight:400;font-style:italic;letter-spacing:0}
+  .gold{color:var(--gold)}
+  .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0}
+  .muted{color:var(--muted)}
+
+  /* header */
+  header{position:sticky;top:0;z-index:20;background:rgba(14,13,11,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:62px}
+  .brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:22px;letter-spacing:-.03em}
+  .brand .dot{color:var(--gold)}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;text-decoration:none;
+    padding:11px 20px;border-radius:999px;border:1px solid transparent;transition:transform .15s ease, background .15s ease, border-color .15s ease}
+  .btn:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+  .btn-gold{background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:#241a08;box-shadow:0 6px 24px -10px rgba(201,154,70,.6)}
+  .btn-gold:hover{transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--line-strong);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .btn svg{width:18px;height:18px}
+  .header .btn{padding:9px 16px}
+
+  section{padding-block:82px;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0}
+
+  /* hero */
+  .hero{padding-block:74px 66px}
+  .hero .eyebrow{margin-bottom:22px}
+  .hero h1{font-size:clamp(40px,7.4vw,72px)}
+  .hero .sub{font-size:clamp(17px,2.3vw,21px);color:var(--muted);max-width:44ch;margin-top:24px}
+  .hero .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+  .hero .btn{padding:15px 26px;font-size:16px}
+  .peek{margin-top:30px;font-size:14.5px;color:var(--faint);display:flex;align-items:center;gap:9px}
+  .peek::before{content:"";width:26px;height:1px;background:var(--gold-deep)}
+
+  /* generic section head */
+  .head{max-width:34ch}
+  .head h2{font-size:clamp(28px,4.6vw,42px);margin-top:16px}
+  .lead{color:var(--muted);margin-top:18px;max-width:52ch}
+
+  /* problem */
+  .problem h2 .serif{color:var(--gold-hi)}
+
+  /* includes list */
+  .inc{list-style:none;padding:0;margin:34px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .inc li{background:var(--bg);padding:22px 24px;display:flex;gap:14px;align-items:flex-start}
+  .inc .ck{flex:none;width:22px;height:22px;margin-top:2px;color:var(--gold)}
+  .inc b{font-weight:700;display:block;font-size:16.5px}
+  .inc span{color:var(--muted);font-size:14.5px}
+
+  /* steps */
+  .steps{margin-top:38px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px;counter-reset:s}
+  .step{position:relative;padding-top:26px;border-top:2px solid var(--gold-deep)}
+  .step .n{font-family:"Instrument Serif",serif;font-style:italic;font-size:44px;line-height:1;color:var(--gold);display:block;margin-bottom:14px}
+  .step h3{font-size:20px;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:15px}
+
+  /* offer */
+  .offer{background:
+     radial-gradient(120% 120% at 100% 0%, rgba(201,154,70,.14), transparent 55%),
+     var(--bg-2);
+    border-top:1px solid var(--line-strong)}
+  .price-card{margin-top:36px;border:1px solid var(--line-strong);border-radius:22px;background:linear-gradient(180deg, rgba(201,154,70,.06), transparent);padding:38px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+  .price .anchor{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+  .price .strike{color:var(--faint);text-decoration:line-through;text-decoration-color:var(--gold-deep);font-size:19px;font-weight:600}
+  .price .badge{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi);border:1px solid var(--gold-deep);border-radius:999px;padding:4px 11px;white-space:nowrap}
+  .price .plus s{color:var(--faint);text-decoration-color:var(--gold-deep);font-size:13px}
+  .price .big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:60px;line-height:1;letter-spacing:-.03em;color:var(--gold-hi)}
+  .price .plus{display:flex;align-items:baseline;gap:12px;margin-top:14px;color:var(--ink)}
+  .price .plus .m{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:28px;color:var(--ink)}
+  .price small{color:var(--muted);font-weight:500;font-size:14px}
+  .price .note{color:var(--faint);font-size:13.5px;margin-top:18px}
+  .inclist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+  .inclist li{display:flex;gap:11px;align-items:flex-start;font-size:15px;color:var(--muted)}
+  .inclist .ck{flex:none;width:19px;height:19px;color:var(--gold);margin-top:2px}
+  .inclist b{color:var(--ink);font-weight:600}
+  .offer .btn{margin-top:30px;padding:15px 28px;font-size:16px}
+
+  /* proof / meta */
+  .proof{text-align:center}
+  .proof .big-quote{font-family:"Instrument Serif",serif;font-style:italic;font-size:clamp(26px,4.4vw,40px);line-height:1.25;max-width:20ch;margin:0 auto;color:var(--ink)}
+  .proof .big-quote .gold{font-style:italic}
+  .proof p{color:var(--muted);margin:24px auto 0;max-width:46ch}
+
+  /* faq */
+  .faq{display:flex;flex-direction:column;gap:0;margin-top:34px;border-top:1px solid var(--line)}
+  details{border-bottom:1px solid var(--line)}
+  summary{cursor:pointer;list-style:none;padding:22px 4px;font-weight:700;font-size:18px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary .ic{flex:none;color:var(--gold);transition:transform .2s ease}
+  details[open] summary .ic{transform:rotate(45deg)}
+  details p{color:var(--muted);padding:0 4px 24px;max-width:60ch}
+
+  /* final cta */
+  .final{text-align:center;background:radial-gradient(90% 120% at 50% 0%, rgba(201,154,70,.12), transparent 60%)}
+  .final h2{font-size:clamp(30px,5.4vw,52px);max-width:18ch;margin:0 auto}
+  .final .btn{margin-top:32px;padding:17px 34px;font-size:17px}
+
+  footer{border-top:1px solid var(--line);padding-block:34px;color:var(--faint);font-size:14px}
+  .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center}
+  .foot a{color:var(--muted);text-decoration:none}
+  .foot a:hover{color:var(--gold)}
+
+  @media (max-width:720px){
+    section{padding-block:60px}
+    .inc{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr;gap:30px}
+    .price-card{grid-template-columns:1fr;padding:28px;gap:28px}
+    .price .big{font-size:52px}
+    .header-cta-text{display:none}
+  }
+</style>
+
+<header class="header">
+  <div class="wrap bar">
+    <div class="brand">mouve<span class="dot">.</span></div>
+    <a class="btn btn-gold js-wa" href="#">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 5 5.1-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.2.2-.3.4-.2.6.1.2.6 1 1.3 1.6.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.9.9c.3.1.4.2.5.3.1.2.1.8-.1 1.4Z"/></svg>
+      <span class="header-cta-text">Quero minha página</span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <h1>Seu anúncio merece uma página que <span class="gold">vira cliente</span>.</h1>
+      <p class="sub">A gente cria a landing page que transforma cada clique em conversa. E, sim: <span class="serif" style="color:var(--gold-hi)">você está olhando para um exemplo dela agora.</span></p>
+      <div class="cta-row">
+        <a class="btn btn-gold js-wa" href="#">Quero minha landing page</a>
+        <a class="btn btn-ghost" href="#como">Ver como funciona</a>
+      </div>
+      <p class="peek">Feita pela Mouve, do zero, sem template genérico.</p>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">O problema</p>
+        <h2>Anúncio bom, <span class="serif">destino ruim.</span></h2>
+      </div>
+      <p class="lead">A maioria joga o clique pago no Instagram, no direct ou num site lento que não pede nada. Você paga pelo clique caro e perde o cliente na porta, sem nem saber quantos escaparam.</p>
+    </div>
+  </section>
+
+  <!-- INCLUDES -->
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">O que você recebe</p>
+        <h2>Uma página, um objetivo: converter.</h2>
+      </div>
+      <ul class="inc">
+        <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Design profissional</b><span>Feito à mão, mobile-first, com a cara do seu serviço.</span></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Botão de WhatsApp direto</b><span>Ou formulário. O lead cai no seu contato na hora.</span></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Copy que vende</b><span>Texto pensado pra converter, não pra enfeitar.</span></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Pixel da Meta instalado</b><span>Seu tráfego otimiza de verdade, com dado limpo.</span></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Carregamento rápido</b><span>Página leve, que não faz ninguém desistir de esperar.</span></div></li>
+        <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>No ar em poucos dias</b><span>Você manda o briefing, o resto é com a gente.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section id="como">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Como funciona</p>
+        <h2>Do briefing ao ar, sem dor de cabeça.</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h3>Briefing rápido</h3><p>Você conta sobre o serviço e a oferta. Uns minutos, num áudio ou numa conversa.</p></div>
+        <div class="step"><span class="n">2</span><h3>A gente cria</h3><p>Design, copy e configuração completos. Você não toca em nada técnico.</p></div>
+        <div class="step"><span class="n">3</span><h3>No ar em dias</h3><p>Página publicada, com pixel e WhatsApp, pronta pra receber anúncio.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER -->
+  <section class="offer">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Investimento</p>
+        <h2>Acessível de propósito.</h2>
+        <p class="lead">Preço baixo pra você testar sem medo. A página se paga com o primeiro cliente que ela trouxer.</p>
+      </div>
+      <div class="price-card">
+        <div class="price">
+          <div class="anchor"><span class="strike">de R$&nbsp;597</span><span class="badge">Oferta de lançamento</span></div>
+          <div class="big">R$&nbsp;297</div>
+          <div style="color:var(--muted);font-size:14px;margin-top:6px">para criar a sua landing page</div>
+          <div class="plus"><span class="m">+ R$&nbsp;97</span><small><s>de R$&nbsp;147</s> /mês pra manter no ar</small></div>
+          <p class="note">Valores de lançamento. A mensalidade cobre tudo pra você nunca precisar se preocupar com a página.</p>
+        </div>
+        <div>
+          <ul class="inclist">
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Hospedagem e domínio no ar</b></div></li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Segurança e backup</b></div></li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Ajustes e suporte</b> quando precisar</div></li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Página sempre atualizada</b></div></li>
+          </ul>
+          <a class="btn btn-gold js-wa" href="#">Começar minha página</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF / META -->
+  <section class="proof">
+    <div class="wrap">
+      <p class="eyebrow" style="text-align:center">A prova</p>
+      <p class="big-quote">A melhor amostra do nosso trabalho é <span class="gold">a página que você está lendo.</span></p>
+      <p>Essa landing page foi feita pela Mouve, do zero. A sua vai ser assim: no seu estilo, com a sua oferta, pronta pra vender. Somos especialistas em captação para clínicas, consultórios e negócios de serviço.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">Dúvidas rápidas</p><h2>Antes de você perguntar.</h2></div>
+      <div class="faq">
+        <details open><summary>Preciso entender de tecnologia?<span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Não. Você manda o briefing e a gente cuida de tudo: design, texto, domínio, hospedagem e configuração.</p></details>
+        <details><summary>Em quanto tempo fica pronta?<span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Poucos dias depois que você entrega o material do briefing. Rápido e sem enrolação.</p></details>
+        <details><summary>Serve pro meu nicho?<span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Sim. Nosso foco é estética, odontologia, saúde e negócios de serviço, mas o método funciona pra qualquer oferta que precise captar cliente.</p></details>
+        <details><summary>E o domínio, é meu?<span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>A gente configura tudo. Se você já tem um domínio, usamos o seu; se não tem, resolvemos junto.</p></details>
+        <details><summary>Funciona com o meu tráfego pago?<span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Perfeitamente. A página já vem com o pixel instalado, então seus anúncios da Meta otimizam com dado real de conversão.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final">
+    <div class="wrap">
+      <p class="eyebrow" style="text-align:center">Bora começar</p>
+      <h2>Pare de perder cliente na porta.</h2>
+      <p class="muted" style="max-width:40ch;margin:18px auto 0">Uma conversa no WhatsApp e a sua página já entra na fila.</p>
+      <a class="btn btn-gold js-wa" href="#">Quero minha landing page</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand" style="font-size:19px">mouve<span class="dot">.</span></div>
+    <div>Marketing que move.</div>
+    <a class="js-wa" href="#">Falar no WhatsApp →</a>
+  </div>
+</footer>
+
+<script>
+  // Troque pelo WhatsApp real da Mouve (formato: 55 + DDD + número, só dígitos).
+  const WHATSAPP = "5534984251140";
+  const MSG = encodeURIComponent("Oi! Vim pela página e quero uma landing page pra minha empresa.");
+  const href = "https://wa.me/" + WHATSAPP + "?text=" + MSG;
+  document.querySelectorAll(".js-wa").forEach(a => { a.href = href; a.target = "_blank"; a.rel = "noopener"; });
+</script>
