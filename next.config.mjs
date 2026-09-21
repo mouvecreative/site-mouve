@@ -1,10 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async rewrites() {
-    return [
-      // Landing page de vendas de LPs, servida como HTML estático em /lps
-      { source: "/lps", destination: "/lps/index.html" },
-    ];
+    return {
+      beforeFiles: [
+        // Domínio próprio do Centro Educacional Estrela Guia:
+        // quando o acesso vier por cieestrelaguia.com.br, a home serve o site da escola.
+        // beforeFiles garante que essa regra vença a home do Mouve (app/page.tsx).
+        {
+          source: "/",
+          has: [{ type: "host", value: "(www\\.)?cieestrelaguia\\.com\\.br" }],
+          destination: "/previews/estrela-guia/index.html",
+        },
+      ],
+      afterFiles: [
+        // Landing page de vendas de LPs, servida como HTML estático em /lps
+        { source: "/lps", destination: "/lps/index.html" },
+      ],
+    };
   },
 };
 
