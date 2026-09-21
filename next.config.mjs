@@ -18,6 +18,17 @@ const nextConfig = {
       ],
     };
   },
+  async headers() {
+    return [
+      // Prévias de sites: nunca cachear, pra sempre mostrar a última versão.
+      {
+        source: "/previews/:path*",
+        headers: [
+          { key: "Cache-Control", value: "no-store, no-cache, must-revalidate, max-age=0" },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
