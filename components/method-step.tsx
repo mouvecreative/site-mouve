@@ -8,10 +8,13 @@ export function MethodStep({
   description: string;
 }) {
   return (
-    <div className="flex flex-col gap-2">
-      <span className="text-2xl font-semibold text-brand-blue">{number}</span>
-      <h3 className="text-lg font-semibold text-brand-paper">{title}</h3>
-      <p className="text-brand-paper/70">{description}</p>
+    <div className="group relative flex flex-col gap-4 rounded-2xl border border-brand-paper/10 bg-brand-surface/60 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-gold/40 hover:bg-brand-surface2/70">
+      <div className="flex items-baseline justify-between">
+        <span className="font-serif text-5xl italic text-gold-grad">{number}</span>
+        <span className="h-px w-10 bg-brand-paper/15 transition-all duration-300 group-hover:w-16 group-hover:bg-brand-gold/60" />
+      </div>
+      <h3 className="font-display text-xl font-bold text-brand-paper">{title}</h3>
+      <p className="text-sm leading-relaxed text-brand-paper/65">{description}</p>
     </div>
   );
 }
