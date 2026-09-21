@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Centro Educacional Estrela Guia · Uberlândia</title>
+<meta name="description" content="Escola particular em Uberlândia, do berçário ao 5º ano. Período integral ou parcial, inglês, capoeira e cultura. Matrículas 2026 abertas." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#FBF6EC; --cream2:#F4EAD6; --navy:#17264A; --navy2:#22366A;
+    --gold:#DFA02B; --gold-soft:#F0C871; --ink:#1C2438; --muted:#5A6076;
+    --line:rgba(23,38,74,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:"Nunito",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Fraunces",serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#3a2803;font-weight:700;font-size:15px;padding:15px 26px;border-radius:999px;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 22px rgba(223,160,43,.28)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(223,160,43,.36)}
+  .btn.navy{background:var(--navy);color:#fff;box-shadow:0 8px 22px rgba(23,38,74,.22)}
+  .btn.ghost{background:transparent;color:var(--navy);border:1.5px solid var(--line);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--gold);box-shadow:none}
+  .kick{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+  .star{color:var(--gold)}
+
+  /* NAV */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(12px);background:rgba(251,246,236,.82);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{font-family:"Fraunces",serif;font-size:24px;font-weight:600;color:var(--navy);display:flex;align-items:center;gap:9px}
+  .logo .st{color:var(--gold);font-size:20px}
+  .nav .btn{padding:11px 20px;font-size:14px}
+  @media(max-width:520px){.nav .btn{padding:10px 15px;font-size:13px}}
+  .nav-note{font-size:13px;color:var(--muted);display:none}
+  @media(min-width:760px){.nav-note{display:block}}
+
+  /* HERO */
+  .hero{position:relative;padding-top:132px;padding-bottom:70px}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:44px;align-items:center}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:56px}}
+  .hero h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(40px,7vw,66px);line-height:1.04;color:var(--navy);letter-spacing:-.01em}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero .lead{margin-top:22px;font-size:clamp(16px,2.3vw,19px);color:var(--muted);max-width:520px}
+  .hero-cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px}
+  .hero .trust{margin-top:26px;display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;font-size:14px;color:var(--muted);max-width:460px}
+  .hero .trust .stars{color:var(--gold);letter-spacing:1px}
+  .hero-img{position:relative}
+  .hero-img .ph{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/4.6;box-shadow:0 30px 60px rgba(23,38,74,.18)}
+  .hero-img .ph img{width:100%;height:100%;object-fit:cover}
+  .badge{position:absolute;left:-14px;bottom:26px;background:#fff;border-radius:16px;padding:16px 20px;box-shadow:0 16px 34px rgba(23,38,74,.16);display:flex;align-items:center;gap:12px}
+  .badge .bi{width:44px;height:44px;border-radius:12px;background:var(--cream2);display:flex;align-items:center;justify-content:center;font-size:22px}
+  .badge b{font-family:"Fraunces",serif;color:var(--navy);font-size:17px;display:block;line-height:1.1}
+  .badge span{font-size:12.5px;color:var(--muted)}
+  .blob{position:absolute;z-index:-1;width:280px;height:280px;background:var(--gold-soft);opacity:.4;filter:blur(60px);border-radius:50%;right:-40px;top:-30px}
+
+  /* STRIP */
+  .strip{background:var(--navy);color:#fff}
+  .strip .row{display:grid;grid-template-columns:1fr;text-align:center}
+  @media(min-width:760px){.strip .row{grid-template-columns:repeat(3,1fr)}}
+  .strip .cell{padding:30px 24px;border-bottom:1px solid rgba(255,255,255,.12)}
+  @media(min-width:760px){.strip .cell{border-bottom:none;border-right:1px solid rgba(255,255,255,.12)}.strip .cell:last-child{border-right:none}}
+  .strip .cell .t{font-family:"Fraunces",serif;font-size:22px;color:var(--gold-soft)}
+  .strip .cell .d{font-size:14px;color:rgba(255,255,255,.75);margin-top:4px}
+
+  /* SECTION */
+  section.pad{padding:92px 0}
+  .head{max-width:640px;margin:0 auto 54px;text-align:center}
+  .head h2{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(30px,5.4vw,50px);line-height:1.08;color:var(--navy);margin-top:14px}
+  .head p{margin-top:14px;color:var(--muted)}
+
+  /* PILLARS */
+  .pillars{display:grid;grid-template-columns:1fr;gap:20px}
+  @media(min-width:640px){.pillars{grid-template-columns:repeat(2,1fr)}}
+  .pill{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 28px;transition:transform .25s,box-shadow .25s}
+  .pill:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(23,38,74,.10)}
+  .pill .ic{width:52px;height:52px;border-radius:14px;background:var(--cream2);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px}
+  .pill h3{font-family:"Fraunces",serif;font-size:23px;color:var(--navy);font-weight:600}
+  .pill p{margin-top:8px;color:var(--muted);font-size:15px}
+
+  /* GALLERY */
+  .galsec{background:var(--cream2)}
+  .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(min-width:820px){.gal{grid-template-columns:repeat(4,1fr)}}
+  .gal .g{border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:#fff}
+  .gal .g.tall{grid-row:span 1}
+  .gal .g img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .gal .g:hover img{transform:scale(1.06)}
+  @media(min-width:820px){.gal .g:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}}
+
+  /* MATRICULAS BAND */
+  .band{position:relative;overflow:hidden;background:var(--navy);color:#fff;border-radius:28px;padding:60px 32px;text-align:center;margin:0 auto}
+  .band .glow{position:absolute;inset:0;z-index:0;background:radial-gradient(60% 80% at 50% -10%,rgba(240,200,113,.28),transparent 60%)}
+  .band>*{position:relative;z-index:1}
+  .band h2{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(30px,5.5vw,50px);line-height:1.06}
+  .band h2 em{font-style:italic;color:var(--gold-soft)}
+  .band p{color:rgba(255,255,255,.8);margin-top:14px;max-width:520px;margin-left:auto;margin-right:auto}
+  .band .btn{margin-top:28px}
+
+  /* INFO */
+  .info{display:grid;grid-template-columns:1fr;gap:28px}
+  @media(min-width:820px){.info{grid-template-columns:1fr 1fr}}
+  .infoCard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px}
+  .infoCard h4{font-family:"Fraunces",serif;font-size:20px;color:var(--navy);margin-bottom:14px}
+  .infoCard ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .infoCard li{display:flex;gap:12px;font-size:15px;color:var(--ink)}
+  .infoCard li .em{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block}
+  .map{border-radius:20px;overflow:hidden;min-height:280px;border:1px solid var(--line)}
+  .map iframe{width:100%;height:100%;min-height:280px;border:0;display:block;filter:grayscale(.2)}
+
+  /* FOOTER */
+  footer{background:var(--navy);color:rgba(255,255,255,.8);padding:56px 0 40px}
+  .foot{display:flex;flex-direction:column;gap:26px;justify-content:space-between}
+  @media(min-width:760px){.foot{flex-direction:row}}
+  .foot .logo{color:#fff}
+  .foot h5{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:12px}
+  .foot p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.72)}
+  .copy{margin-top:38px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);font-size:12.5px;color:rgba(255,255,255,.6);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}
+  .wafloat{position:fixed;right:18px;bottom:18px;z-index:60;background:#1FA855;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(0,0,0,.28)}
+  .wafloat:hover{transform:scale(1.08)}
+  .wafloat svg{width:30px;height:30px;fill:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo"><span class="st">★</span> Estrela Guia</div>
+    <div style="display:flex;align-items:center;gap:18px">
+      <span class="nav-note">Santa Mônica · Uberlândia/MG</span>
+      <a class="btn" href="https://wa.me/5534991544589?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20uma%20visita%20e%20saber%20sobre%20as%20matr%C3%ADculas%202026." target="_blank" rel="noopener">Agendar visita</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kick">★ Berçário ao 5º ano · Uberlândia</span>
+      <h1 style="margin-top:16px">Onde os primeiros passos ganham uma <em>estrela pra seguir.</em></h1>
+      <p class="lead">Uma escola que acolhe cada criança pelo nome, do berçário ao 5º ano. Ensino de verdade, com o carinho de quem cuida como família.</p>
+      <div class="hero-cta">
+        <a class="btn" href="https://wa.me/5534991544589?text=Ol%C3%A1!%20Quero%20agendar%20uma%20visita%20na%20Estrela%20Guia." target="_blank" rel="noopener">Agendar uma visita</a>
+        <a class="btn ghost" href="#matriculas">Matrículas 2026</a>
+      </div>
+      <div class="trust"><span class="stars">★★★★★</span> Famílias que confiam há mais de 20 anos em Uberlândia</div>
+    </div>
+    <div class="hero-img">
+      <div class="blob"></div>
+      <div class="ph"><img src="img/hero.jpg" alt="Criança aprendendo na Estrela Guia"></div>
+      <div class="badge"><div class="bi">✏️</div><div><b>Matrículas 2026</b><span>abertas agora</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="wrap row">
+    <div class="cell"><div class="t serif">Berçário ao 5º ano</div><div class="d">Educação infantil e fundamental</div></div>
+    <div class="cell"><div class="t serif">Integral ou parcial</div><div class="d">O tempo que cabe na sua rotina</div></div>
+    <div class="cell"><div class="t serif">Inglês · Capoeira · Cultura</div><div class="d">No dia a dia, não como enfeite</div></div>
+  </div>
+</div>
+
+<!-- PILLARS -->
+<section class="pad">
+  <div class="wrap">
+    <div class="head">
+      <span class="kick">Por que as famílias escolhem</span>
+      <h2>Uma escola pequena no acolhimento, grande no que entrega.</h2>
+      <p>Aqui ninguém é número. Cada criança é conhecida, cuidada e desafiada no ritmo dela.</p>
+    </div>
+    <div class="pillars">
+      <div class="pill"><div class="ic">🤍</div><h3>Acolhimento de verdade</h3><p>Turmas no tamanho certo para cada criança ser conhecida pelo nome, do berçário ao 5º ano.</p></div>
+      <div class="pill"><div class="ic">🌎</div><h3>Inglês desde cedo</h3><p>Inglês, capoeira e cultura fazem parte da rotina, formando crianças curiosas e abertas ao mundo.</p></div>
+      <div class="pill"><div class="ic">⏰</div><h3>Integral ou parcial</h3><p>Você escolhe o período que cabe na sua rotina, com a segurança de quem cuida como família.</p></div>
+      <div class="pill"><div class="ic">🌱</div><h3>Base para a vida</h3><p>Há mais de 20 anos preparando crianças para pensar, criar e conviver com autonomia.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="pad galsec">
+  <div class="wrap">
+    <div class="head">
+      <span class="kick">Um dia na Estrela Guia</span>
+      <h2>Aprender também é brincar, criar e se sentir em casa.</h2>
+    </div>
+    <div class="gal">
+      <div class="g"><img src="img/s1.jpg" alt="Hora da história"></div>
+      <div class="g"><img src="img/s2.jpg" alt="Atividades de aprendizado"></div>
+      <div class="g"><img src="img/s3.jpg" alt="Espaço lúdico"></div>
+      <div class="g"><img src="img/s4.jpg" alt="Salas coloridas"></div>
+      <div class="g"><img src="img/s5.jpg" alt="Momentos de alegria"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MATRICULAS -->
+<section class="pad" id="matriculas">
+  <div class="wrap">
+    <div class="band">
+      <div class="glow"></div>
+      <span class="kick" style="color:var(--gold-soft)">★ Matrículas 2026 abertas</span>
+      <h2 style="margin-top:14px">Venha conhecer a escola <em>antes de decidir.</em></h2>
+      <p>Agende uma visita, conheça as professoras e sinta o ambiente. É a melhor forma de escolher a escola do seu filho.</p>
+      <a class="btn" href="https://wa.me/5534991544589?text=Ol%C3%A1!%20Quero%20agendar%20uma%20visita%20e%20saber%20sobre%20as%20matr%C3%ADculas%202026%20na%20Estrela%20Guia." target="_blank" rel="noopener">Agendar visita no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="pad" style="padding-top:0">
+  <div class="wrap info">
+    <div class="infoCard">
+      <h4>Onde estamos e como falar com a gente</h4>
+      <ul>
+        <li>📍 <div><span class="em">Endereço</span>R. Izaú Rangel de Mendonça, 546<br>Santa Mônica, Uberlândia/MG</div></li>
+        <li>📞 <div><span class="em">Telefone</span>(34) 3219-8747</div></li>
+        <li>💬 <div><span class="em">WhatsApp</span>(34) 99154-4589</div></li>
+        <li>🕗 <div><span class="em">Atendimento</span>Segunda a sexta, até 19h</div></li>
+      </ul>
+      <a class="btn navy" style="margin-top:22px" href="https://wa.me/5534991544589?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20Estrela%20Guia." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+    <div class="map">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=R.%20Iza%C3%BA%20Rangel%20de%20Mendon%C3%A7a,%20546,%20Santa%20M%C3%B4nica,%20Uberl%C3%A2ndia%20MG&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="logo" style="font-size:26px"><span class="st">★</span> Estrela Guia</div>
+        <p style="margin-top:12px;max-width:300px">Centro Educacional Estrela Guia.<br>Educação infantil e fundamental em Uberlândia, com o cuidado de quem trata cada criança como família.</p>
+      </div>
+      <div><h5>Onde estamos</h5><p>R. Izaú Rangel de Mendonça, 546<br>Santa Mônica · Uberlândia/MG<br>CEP 38408-136</p></div>
+      <div><h5>Contato</h5><p>(34) 3219-8747<br>WhatsApp (34) 99154-4589<br>@cieestrelaguia</p></div>
+    </div>
+    <div class="copy"><span>© 2026 Centro Educacional Estrela Guia</span><span>Guiando os primeiros passos há mais de 20 anos.</span></div>
+  </div>
+</footer>
+
+<a class="wafloat" href="https://wa.me/5534991544589?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Estrela%20Guia." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.25 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+</a>
+
+</body>
+</html>
