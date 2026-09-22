@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rosita Advocacia · Direito Trabalhista em Uberlândia</title>
+<meta name="description" content="Rosita Advocacia. Direito do trabalho em Uberlândia, ao lado de quem trabalha. Atendimento próximo e técnico. Fale com o escritório." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#12151B; --ink2:#191D25; --gold:#B08D57; --gold-soft:#D8BC8A;
+    --paper:#ECE7DD; --muted:#9AA0AB; --line:rgba(236,231,221,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--paper);font-family:"Inter",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Cormorant Garamond",serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:500;padding:14px 26px;border-radius:4px;background:var(--gold);color:#1a1408;transition:background .2s,transform .2s;letter-spacing:.01em}
+  .btn:hover{background:var(--gold-soft);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--paper);border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--gold);background:transparent}
+  .kick{font-size:12.5px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(18,21,27,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .logo{display:flex;flex-direction:column;line-height:1}
+  .logo .n{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;letter-spacing:.01em}
+  .logo .s{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+  .nav .btn{padding:11px 20px;font-size:14px}
+  @media(max-width:520px){.nav .btn{padding:10px 15px;font-size:13px}}
+
+  /* HERO */
+  .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;padding:120px 0 70px}
+  .hero .bg{position:absolute;inset:0;z-index:-2}
+  .hero .bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) brightness(.5)}
+  .hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,21,27,.75),rgba(18,21,27,.55) 40%,var(--ink))}
+  .hero-in{position:relative;max-width:820px}
+  .hero h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(46px,9vw,88px);line-height:1.0;letter-spacing:-.01em;margin-top:20px}
+  .hero h1 em{font-style:italic;color:var(--gold-soft)}
+  .hero .lead{margin-top:24px;font-size:clamp(16px,2.3vw,19px);color:rgba(236,231,221,.8);max-width:620px;font-weight:300}
+  .hero-cta{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px}
+
+  section.pad{padding:96px 0}
+  .head{max-width:680px;margin-bottom:52px}
+  .head h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(32px,5.5vw,52px);line-height:1.08;margin-top:14px}
+  .head p{margin-top:16px;color:var(--muted);font-weight:300}
+
+  /* AREAS */
+  .areas{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+  @media(min-width:640px){.areas{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:960px){.areas{grid-template-columns:repeat(3,1fr)}}
+  .area{background:var(--ink);padding:34px 30px;transition:background .25s}
+  .area:hover{background:var(--ink2)}
+  .area .num{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:22px;color:var(--gold)}
+  .area h3{font-family:"Cormorant Garamond",serif;font-size:25px;font-weight:600;margin-top:10px}
+  .area p{margin-top:8px;color:var(--muted);font-size:14.5px;font-weight:300}
+
+  /* SOBRE */
+  .sobre{background:var(--ink2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .sobre-in{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+  @media(min-width:860px){.sobre-in{grid-template-columns:1fr 1fr;gap:64px}}
+  .sobre h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(30px,5vw,46px);line-height:1.1;margin-top:14px}
+  .sobre p{margin-top:18px;color:rgba(236,231,221,.78);font-weight:300}
+  .sobre .ph{border-radius:6px;overflow:hidden;aspect-ratio:5/4;border:1px solid var(--line)}
+  .sobre .ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.75) brightness(.8)}
+
+  /* PASSOS */
+  .steps{display:grid;grid-template-columns:1fr;gap:28px}
+  @media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+  .step{border-top:2px solid var(--gold);padding-top:20px}
+  .step .n{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:20px;color:var(--gold)}
+  .step h4{font-family:"Cormorant Garamond",serif;font-size:23px;font-weight:600;margin-top:6px}
+  .step p{margin-top:8px;color:var(--muted);font-size:14.5px;font-weight:300}
+
+  /* CONTATO */
+  .contato{background:var(--ink2);border-top:1px solid var(--line)}
+  .contato-in{display:grid;grid-template-columns:1fr;gap:36px}
+  @media(min-width:820px){.contato-in{grid-template-columns:1fr 1fr}}
+  .cbox h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(30px,5vw,44px);line-height:1.1}
+  .cbox ul{list-style:none;margin-top:26px;display:flex;flex-direction:column;gap:18px}
+  .cbox li{font-size:15px;color:rgba(236,231,221,.85)}
+  .cbox li .t{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:3px}
+  .map{border-radius:6px;overflow:hidden;min-height:300px;border:1px solid var(--line)}
+  .map iframe{width:100%;height:100%;min-height:300px;border:0;display:block;filter:grayscale(.4) invert(.9) contrast(.9)}
+
+  footer{background:var(--ink);padding:52px 0 42px;border-top:1px solid var(--line)}
+  .foot{display:flex;flex-direction:column;gap:22px;justify-content:space-between}
+  @media(min-width:720px){.foot{flex-direction:row}}
+  .foot .n{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600}
+  .foot p{color:var(--muted);font-size:13.5px;font-weight:300;line-height:1.7;max-width:360px}
+  .oab{margin-top:32px;padding-top:22px;border-top:1px solid var(--line);font-size:12px;color:rgba(154,160,171,.8);font-weight:300;line-height:1.6}
+  .wafloat{position:fixed;right:18px;bottom:18px;z-index:60;background:#1FA855;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 26px rgba(0,0,0,.4)}
+  .wafloat:hover{transform:scale(1.07)}
+  .wafloat svg{width:29px;height:29px;fill:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo"><span class="n serif">Rosita Advocacia</span><span class="s">Direito Trabalhista</span></div>
+    <a class="btn" href="https://wa.me/5534996965998?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20preciso%20de%20orienta%C3%A7%C3%A3o%20trabalhista." target="_blank" rel="noopener">Fale com o escritório</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="bg"><img src="/previews/rosita-advocacia/img/hero.jpg" alt=""></div>
+  <div class="wrap hero-in">
+    <span class="kick">Advocacia Trabalhista · Uberlândia</span>
+    <h1>Ao lado de <em>quem trabalha.</em></h1>
+    <p class="lead">Direito do trabalho com atendimento próximo e técnico. Entenda seus direitos e tenha quem realmente acompanhe o seu caso, do início ao fim.</p>
+    <div class="hero-cta">
+      <a class="btn" href="https://wa.me/5534996965998?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20preciso%20de%20orienta%C3%A7%C3%A3o%20trabalhista." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <a class="btn ghost" href="#atuacao">Áreas de atuação</a>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="pad" id="atuacao">
+  <div class="wrap">
+    <div class="head">
+      <span class="kick">Áreas de atuação</span>
+      <h2>Em que o escritório pode te ajudar.</h2>
+      <p>Atuação voltada a quem trabalha, com análise cuidadosa de cada situação.</p>
+    </div>
+    <div class="areas">
+      <div class="area"><div class="num">01</div><h3>Verbas rescisórias</h3><p>Saldo de salário, aviso, férias, 13º e o que ficou pendente na saída.</p></div>
+      <div class="area"><div class="num">02</div><h3>Horas extras</h3><p>Jornada além do combinado, banco de horas e intervalos não respeitados.</p></div>
+      <div class="area"><div class="num">03</div><h3>Rescisão indireta</h3><p>Quando a empresa descumpre a lei e o vínculo pode ser encerrado por culpa dela.</p></div>
+      <div class="area"><div class="num">04</div><h3>Assédio e danos morais</h3><p>Situações abusivas no ambiente de trabalho e a devida reparação.</p></div>
+      <div class="area"><div class="num">05</div><h3>Reconhecimento de vínculo</h3><p>Trabalho sem registro ou registro que não reflete a realidade.</p></div>
+      <div class="area"><div class="num">06</div><h3>Insalubridade e periculosidade</h3><p>Adicionais devidos a quem trabalha exposto a risco ou condições nocivas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre">
+  <div class="wrap pad sobre-in">
+    <div>
+      <span class="kick">O escritório</span>
+      <h2>Técnica, atenção e transparência em cada caso.</h2>
+      <p>A relação de trabalho é feita de detalhes, e é neles que muita gente perde direito sem saber. Aqui, cada caso é analisado com cuidado e explicado em linguagem clara, para você entender exatamente o que está em jogo.</p>
+      <p>Você acompanha o andamento de perto, com um atendimento direto e sem juridiquês.</p>
+    </div>
+    <div class="ph"><img src="/previews/rosita-advocacia/img/work.jpg" alt="Estudo de um caso trabalhista"></div>
+  </div>
+</section>
+
+<!-- PASSOS -->
+<section class="pad">
+  <div class="wrap">
+    <div class="head">
+      <span class="kick">Como funciona</span>
+      <h2>Simples do primeiro contato ao acompanhamento.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h4>Conversa inicial</h4><p>Você conta a sua situação pelo WhatsApp e recebe uma primeira orientação.</p></div>
+      <div class="step"><div class="n">02</div><h4>Análise do caso</h4><p>O escritório estuda os documentos e explica os caminhos possíveis, com clareza.</p></div>
+      <div class="step"><div class="n">03</div><h4>Acompanhamento</h4><p>Se você seguir, cuidamos de cada etapa e mantemos você informado o tempo todo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato">
+  <div class="wrap pad contato-in">
+    <div class="cbox">
+      <span class="kick">Contato</span>
+      <h2>Fale com o escritório.</h2>
+      <ul>
+        <li><span class="t">Endereço</span>R. Espírito Santo, 120 — Uberlândia/MG</li>
+        <li><span class="t">WhatsApp</span>(34) 99696-5998</li>
+        <li><span class="t">Atendimento</span>Com hora marcada</li>
+      </ul>
+      <a class="btn" style="margin-top:26px" href="https://wa.me/5534996965998?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20preciso%20de%20orienta%C3%A7%C3%A3o%20trabalhista." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+    <div class="map">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=R.%20Esp%C3%ADrito%20Santo,%20120,%20Uberl%C3%A2ndia%20MG&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="n serif">Rosita Advocacia</div>
+        <p style="margin-top:10px">Direito do trabalho em Uberlândia. Ao lado de quem trabalha, com técnica e atenção.</p>
+      </div>
+      <div>
+        <p><strong style="color:var(--paper);font-weight:500">Contato</strong><br>R. Espírito Santo, 120 — Uberlândia/MG<br>WhatsApp (34) 99696-5998</p>
+      </div>
+    </div>
+    <div class="oab">Este site tem caráter meramente informativo e não constitui oferta de serviços, publicidade imoderada ou captação de clientela, em conformidade com o Código de Ética e o Provimento nº 205/2021 da OAB. Nenhum resultado é prometido ou garantido.</div>
+  </div>
+</footer>
+
+<a class="wafloat" href="https://wa.me/5534996965998?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20preciso%20de%20orienta%C3%A7%C3%A3o%20trabalhista." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.25 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+</a>
+
+</body>
+</html>
