@@ -15,6 +15,8 @@ const nextConfig = {
       afterFiles: [
         // Landing page de vendas de LPs, servida como HTML estático em /lps
         { source: "/lps", destination: "/lps/index.html" },
+        // Landing page "Sites por assinatura" em /sites
+        { source: "/sites", destination: "/previews/mouve-sites/index.html" },
       ],
     };
   },
