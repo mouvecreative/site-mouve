@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mariana Souza · Massoterapeuta em Uberlândia</title>
+<meta name="description" content="Mariana Souza, massoterapeuta em Uberlândia. Alívio de dores, bem-estar e modelagem corporal. Agende sua sessão." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#F4F0E7;--bg2:#EAE4D6;--ink:#2C362F;--muted:#77807A;--green:#6E8A6A;--green-soft:#95AD8F;--line:rgba(44,54,47,.12)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"Poppins",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Cormorant Garamond",serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:500;padding:15px 28px;border-radius:999px;background:var(--green);color:#fff;transition:background .2s,transform .2s;letter-spacing:.01em}
+  .btn:hover{background:#5d7a59;transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--green)}
+  .kick{font-size:12.5px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--green)}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(244,240,231,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:80px}
+  .logo{display:flex;flex-direction:column;line-height:1.05}
+  .logo .n{font-family:"Cormorant Garamond",serif;font-size:27px;font-weight:600}
+  .logo .s{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--green);margin-top:5px}
+  .nav .btn{padding:11px 22px;font-size:14px}
+  @media(max-width:520px){.nav .btn{padding:10px 15px;font-size:13px}.logo .n{font-size:22px}}
+
+  .hero{position:relative;display:grid;grid-template-columns:1fr;min-height:100svh;align-items:center;padding:120px 0 60px}
+  @media(min-width:900px){.hero{grid-template-columns:1.05fr .95fr;gap:60px;padding-top:80px}}
+  .hero h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(42px,6.6vw,76px);line-height:1.03;letter-spacing:-.01em;margin-top:20px}
+  .hero h1 em{font-style:italic;color:var(--green)}
+  .hero .lead{margin-top:22px;font-size:clamp(16px,2.2vw,19px);color:var(--muted);max-width:520px;font-weight:300}
+  .hero-cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px}
+  .hero-img{position:relative}
+  .hero-img .ph{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 70px rgba(44,54,47,.16)}
+  .hero-img .ph img{width:100%;height:100%;object-fit:cover}
+  .hero-img .tag{position:absolute;left:-18px;bottom:34px;background:var(--bg);border-radius:12px;padding:20px 26px;box-shadow:0 16px 40px rgba(44,54,47,.14)}
+  .hero-img .tag .serif{font-size:20px}
+  .hero-img .tag span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+
+  section.pad{padding:100px 0}
+  .head{max-width:640px;margin:0 auto 56px;text-align:center}
+  .head h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(32px,5.2vw,52px);line-height:1.08;margin-top:14px}
+  .head p{margin-top:14px;color:var(--muted);font-weight:300}
+
+  .proc{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:640px){.proc{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:980px){.proc{grid-template-columns:repeat(3,1fr)}}
+  .p{background:#fff;border:1px solid var(--line);border-radius:16px;padding:34px 30px;transition:transform .25s,box-shadow .25s}
+  .p:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(44,54,47,.1)}
+  .p .ic{width:52px;height:52px;border-radius:14px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:16px}
+  .p h3{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600}
+  .p p{margin-top:8px;color:var(--muted);font-size:14.5px;font-weight:300}
+
+  .sobre{background:var(--bg2)}
+  .sobre-in{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+  @media(min-width:860px){.sobre-in{grid-template-columns:1fr 1fr;gap:64px}}
+  .sobre h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(30px,5vw,46px);line-height:1.1;margin-top:14px}
+  .sobre p{margin-top:18px;color:var(--ink);font-weight:300;opacity:.85}
+  .sobre .ph{border-radius:16px;overflow:hidden;aspect-ratio:5/6;box-shadow:0 20px 50px rgba(44,54,47,.14)}
+  .sobre .ph img{width:100%;height:100%;object-fit:cover}
+
+  .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(min-width:820px){.gal{grid-template-columns:repeat(3,1fr)}}
+  .gal .g{border-radius:16px;overflow:hidden;aspect-ratio:3/4}
+  .gal .g img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .gal .g:hover img{transform:scale(1.05)}
+
+  .contato{background:var(--bg2)}
+  .contato-in{display:grid;grid-template-columns:1fr;gap:36px}
+  @media(min-width:820px){.contato-in{grid-template-columns:1fr 1fr}}
+  .cbox h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(30px,5vw,44px);line-height:1.1}
+  .cbox ul{list-style:none;margin-top:26px;display:flex;flex-direction:column;gap:18px}
+  .cbox li{font-size:15px}
+  .cbox li .t{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:3px}
+  .map{border-radius:16px;overflow:hidden;min-height:300px;border:1px solid var(--line)}
+  .map iframe{width:100%;height:100%;min-height:300px;border:0;display:block;filter:grayscale(.2)}
+
+  footer{background:var(--ink);color:rgba(244,240,231,.82);padding:52px 0 42px}
+  .foot{display:flex;flex-direction:column;gap:22px;justify-content:space-between}
+  @media(min-width:720px){.foot{flex-direction:row}}
+  .foot .n{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;color:var(--bg)}
+  .foot p{color:rgba(244,240,231,.7);font-size:13.5px;font-weight:300;line-height:1.7;max-width:340px}
+  .note{margin-top:32px;padding-top:22px;border-top:1px solid rgba(244,240,231,.15);font-size:11.5px;color:rgba(244,240,231,.6);font-weight:300;line-height:1.6}
+  .wafloat{position:fixed;right:18px;bottom:18px;z-index:60;background:#1FA855;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+  .wafloat:hover{transform:scale(1.07)}
+  .wafloat svg{width:29px;height:29px;fill:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo"><span class="n serif">Mariana Souza</span><span class="s">Massoterapeuta · Uberlândia</span></div>
+    <a class="btn" href="https://wa.me/5534999684438?text=Ol%C3%A1%2C%20Mariana!%20Vim%20pelo%20site%20e%20quero%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener">Agendar sessão</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap" style="display:contents">
+    <div style="padding:0 24px">
+      <span class="kick">Saúde, estética e bem-estar</span>
+      <h1>Seu corpo pede uma <em>pausa.</em></h1>
+      <p class="lead">Massoterapia para aliviar dores, relaxar e cuidar da sua autoestima, com técnica e um toque que faz diferença.</p>
+      <div class="hero-cta">
+        <a class="btn" href="https://wa.me/5534999684438?text=Ol%C3%A1%2C%20Mariana!%20Vim%20pelo%20site%20e%20quero%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener">Agendar no WhatsApp</a>
+        <a class="btn ghost" href="#servicos">Ver serviços</a>
+      </div>
+    </div>
+    <div class="hero-img" style="padding:0 24px">
+      <div class="ph"><img src="/previews/mariana-souza/img/hero.jpg" alt="Massagem relaxante"></div>
+      <div class="tag"><div class="serif">Um respiro para você</div><span>corpo e mente em equilíbrio</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICOS -->
+<section class="pad" id="servicos">
+  <div class="wrap">
+    <div class="head">
+      <span class="kick">Serviços</span>
+      <h2>Cada técnica para uma necessidade sua.</h2>
+      <p>Sua sessão é pensada a partir do que o seu corpo está pedindo naquele momento.</p>
+    </div>
+    <div class="proc">
+      <div class="p"><div class="ic">🤍</div><h3>Massagem relaxante</h3><p>Alívio da tensão do dia a dia, para desacelerar e recarregar.</p></div>
+      <div class="p"><div class="ic">🌿</div><h3>Massagem terapêutica</h3><p>Foco em dores, tensões musculares e no manejo da fibromialgia.</p></div>
+      <div class="p"><div class="ic">✨</div><h3>Massagem modeladora</h3><p>Modelagem corporal, ajudando a definir e tonificar o contorno.</p></div>
+      <div class="p"><div class="ic">💧</div><h3>Drenagem linfática</h3><p>Redução de inchaço e sensação de leveza, com cuidado ao lipedema.</p></div>
+      <div class="p"><div class="ic">🌙</div><h3>Banho de lua</h3><p>Esfoliação e hidratação corporal para uma pele macia e uniforme.</p></div>
+      <div class="p"><div class="ic">🕯️</div><h3>Day SPA</h3><p>Uma experiência completa de cuidado, do começo ao fim.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre">
+  <div class="wrap pad sobre-in">
+    <div class="ph"><img src="/previews/mariana-souza/img/g2.jpg" alt="Sessão de massoterapia"></div>
+    <div>
+      <span class="kick">Sobre</span>
+      <h2>Mãos que cuidam, técnica que resolve.</h2>
+      <p>A Mariana Souza é massoterapeuta em Uberlândia, especialista em saúde e estética. Une técnicas avançadas a um atendimento atento, para cuidar de quem chega com dor, cansaço ou vontade de se sentir melhor.</p>
+      <p>Cada sessão é um espaço só seu, para respirar e voltar mais leve.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="pad">
+  <div class="wrap">
+    <div class="head">
+      <span class="kick">O momento</span>
+      <h2>Um cuidado que você sente na hora.</h2>
+    </div>
+    <div class="gal">
+      <div class="g"><img src="/previews/mariana-souza/img/g1.jpg" alt="Massagem"></div>
+      <div class="g"><img src="/previews/mariana-souza/img/hero.jpg" alt="Pedras quentes"></div>
+      <div class="g"><img src="/previews/mariana-souza/img/g3.jpg" alt="Spa"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato">
+  <div class="wrap pad contato-in">
+    <div class="cbox">
+      <span class="kick">Agende sua sessão</span>
+      <h2>Reserve o seu momento.</h2>
+      <ul>
+        <li><span class="t">Endereço</span>R. Sebastiana Arantes Fonseca, 640 A — Santa Mônica, Uberlândia/MG</li>
+        <li><span class="t">WhatsApp</span>(34) 99968-4438</li>
+        <li><span class="t">Instagram</span>@marianasouzamassoterapia</li>
+      </ul>
+      <a class="btn" style="margin-top:26px" href="https://wa.me/5534999684438?text=Ol%C3%A1%2C%20Mariana!%20Vim%20pelo%20site%20e%20quero%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+    <div class="map">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=R.%20Sebastiana%20Arantes%20Fonseca,%20640,%20Santa%20M%C3%B4nica,%20Uberl%C3%A2ndia%20MG&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="n serif">Mariana Souza</div>
+        <p style="margin-top:10px">Massoterapeuta em Uberlândia. Saúde, estética e bem-estar, com técnica e cuidado.</p>
+      </div>
+      <div>
+        <p><strong style="color:var(--bg);font-weight:500">Contato</strong><br>R. Sebastiana Arantes Fonseca, 640 A — Santa Mônica, Uberlândia/MG<br>WhatsApp (34) 99968-4438 · @marianasouzamassoterapia</p>
+      </div>
+    </div>
+    <div class="note">Conteúdo de caráter informativo. Os resultados variam de pessoa para pessoa; a massoterapia não substitui avaliação ou tratamento médico.</div>
+  </div>
+</footer>
+
+<a class="wafloat" href="https://wa.me/5534999684438?text=Ol%C3%A1%2C%20Mariana!%20Vim%20pelo%20site%20e%20quero%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.25 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+</a>
+
+</body>
+</html>
