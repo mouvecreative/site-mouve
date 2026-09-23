@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dra. Amanda Bezerril · Harmonização Facial · Recreio dos Bandeirantes</title>
+<meta name="description" content="Dra. Amanda Bezerril, cirurgiã-dentista (CRO/RJ 59.180). Harmonização facial com naturalidade, no Recreio dos Bandeirantes/RJ. Agende sua avaliação." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#F5EFE3;--bg2:#EDE3D2;--ink:#2B2620;--muted:#877D6E;--gold:#A98A54;--gold-soft:#C6A876;--line:rgba(43,38,32,.12)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"Poppins",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Cormorant Garamond",serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:500;padding:15px 28px;border-radius:999px;background:var(--gold);color:#fff;transition:background .2s,transform .2s;letter-spacing:.01em}
+  .btn:hover{background:#94763f;transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--gold)}
+  .kick{font-size:12.5px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(245,239,227,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:80px}
+  .logo{display:flex;flex-direction:column;line-height:1.05}
+  .logo .n{font-family:"Cormorant Garamond",serif;font-size:27px;font-weight:600}
+  .logo .s{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:5px}
+  .nav .btn{padding:11px 22px;font-size:14px}
+  @media(max-width:520px){.nav .btn{padding:10px 15px;font-size:13px}.logo .n{font-size:21px}}
+
+  .hero{position:relative;display:grid;grid-template-columns:1fr;min-height:100svh;align-items:center;padding:120px 0 60px}
+  @media(min-width:900px){.hero{grid-template-columns:1.05fr .95fr;gap:60px;padding-top:80px}}
+  .hero h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(42px,6.6vw,76px);line-height:1.03;letter-spacing:-.01em;margin-top:20px}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero .lead{margin-top:22px;font-size:clamp(16px,2.2vw,19px);color:var(--muted);max-width:520px;font-weight:300}
+  .hero-cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px}
+  .hero-img{position:relative}
+  .hero-img .ph{position:relative;border-radius:200px 200px 16px 16px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 70px rgba(43,38,32,.16)}
+  .hero-img .ph img{width:100%;height:100%;object-fit:cover}
+  .hero-img .tag{position:absolute;left:-18px;bottom:34px;background:var(--bg);border-radius:14px;padding:20px 26px;box-shadow:0 16px 40px rgba(43,38,32,.14)}
+  .hero-img .tag .serif{font-size:20px}
+  .hero-img .tag span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+
+  section.pad{padding:100px 0}
+  .head{max-width:640px;margin:0 auto 56px;text-align:center}
+  .head h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(32px,5.2vw,52px);line-height:1.08;margin-top:14px}
+  .head p{margin-top:14px;color:var(--muted);font-weight:300}
+
+  .proc{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  @media(min-width:640px){.proc{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:980px){.proc{grid-template-columns:repeat(3,1fr)}}
+  .p{background:var(--bg);padding:38px 32px;transition:background .25s}
+  .p:hover{background:var(--bg2)}
+  .p .num{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:22px;color:var(--gold)}
+  .p h3{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;margin-top:10px}
+  .p p{margin-top:8px;color:var(--muted);font-size:14.5px;font-weight:300}
+
+  .sobre{background:var(--bg2)}
+  .sobre-in{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+  @media(min-width:860px){.sobre-in{grid-template-columns:1fr 1fr;gap:64px}}
+  .sobre h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(30px,5vw,46px);line-height:1.1;margin-top:14px}
+  .sobre p{margin-top:18px;color:var(--ink);font-weight:300;opacity:.85}
+  .sobre .ph{border-radius:16px;overflow:hidden;aspect-ratio:5/6;box-shadow:0 20px 50px rgba(43,38,32,.14)}
+  .sobre .ph img{width:100%;height:100%;object-fit:cover}
+
+  .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(min-width:820px){.gal{grid-template-columns:repeat(3,1fr)}}
+  .gal .g{border-radius:16px;overflow:hidden;aspect-ratio:3/4}
+  .gal .g img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .gal .g:hover img{transform:scale(1.05)}
+
+  .contato{background:var(--bg2)}
+  .contato-in{display:grid;grid-template-columns:1fr;gap:36px}
+  @media(min-width:820px){.contato-in{grid-template-columns:1.1fr .9fr}}
+  .cbox h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(30px,5vw,44px);line-height:1.1}
+  .cbox ul{list-style:none;margin-top:26px;display:flex;flex-direction:column;gap:18px}
+  .cbox li{font-size:15px}
+  .cbox li .t{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:3px}
+
+  footer{background:var(--ink);color:rgba(245,239,227,.82);padding:52px 0 42px}
+  .foot{display:flex;flex-direction:column;gap:22px;justify-content:space-between}
+  @media(min-width:720px){.foot{flex-direction:row}}
+  .foot .n{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;color:var(--bg)}
+  .foot p{color:rgba(245,239,227,.7);font-size:13.5px;font-weight:300;line-height:1.7;max-width:340px}
+  .note{margin-top:32px;padding-top:22px;border-top:1px solid rgba(245,239,227,.15);font-size:11.5px;color:rgba(245,239,227,.6);font-weight:300;line-height:1.6}
+  .wafloat{position:fixed;right:18px;bottom:18px;z-index:60;background:#1FA855;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+  .wafloat:hover{transform:scale(1.07)}
+  .wafloat svg{width:29px;height:29px;fill:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo"><span class="n serif">Dra. Amanda Bezerril</span><span class="s">Harmonização Facial · CRO/RJ 59.180</span></div>
+    <a class="btn" href="https://ig.me/m/dra.amandabezerril" target="_blank" rel="noopener">Agendar avaliação</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap" style="display:contents">
+    <div style="padding:0 24px">
+      <span class="kick">Harmonização Facial · Recreio dos Bandeirantes</span>
+      <h1>Sua melhor versão, com <em>naturalidade.</em></h1>
+      <p class="lead">Harmonização facial com olhar individual e resultado natural. Técnica, cuidado e um plano feito para valorizar a sua beleza.</p>
+      <div class="hero-cta">
+        <a class="btn" href="https://ig.me/m/dra.amandabezerril" target="_blank" rel="noopener">Agendar avaliação</a>
+        <a class="btn ghost" href="#procedimentos">Ver procedimentos</a>
+      </div>
+    </div>
+    <div class="hero-img" style="padding:0 24px">
+      <div class="ph"><img src="/previews/dra-amanda-bezerril/img/hero.jpg" alt="Cuidado facial"></div>
+      <div class="tag"><div class="serif">Resultado natural</div><span>a sua essência, valorizada</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCEDIMENTOS -->
+<section class="pad" id="procedimentos">
+  <div class="wrap">
+    <div class="head">
+      <span class="kick">Procedimentos</span>
+      <h2>Cada detalhe pensado para o seu rosto.</h2>
+      <p>Toda indicação nasce de uma avaliação individual, respeitando a sua anatomia e o seu desejo.</p>
+    </div>
+    <div class="proc">
+      <div class="p"><div class="num">01</div><h3>Harmonização facial</h3><p>Equilíbrio e proporção do rosto, com um plano feito para você.</p></div>
+      <div class="p"><div class="num">02</div><h3>Preenchimento</h3><p>Reposição de volume e contorno de forma sutil e planejada.</p></div>
+      <div class="p"><div class="num">03</div><h3>Toxina botulínica</h3><p>Suavização de linhas de expressão, preservando a naturalidade.</p></div>
+      <div class="p"><div class="num">04</div><h3>Bioestimuladores</h3><p>Estímulo de colágeno para firmeza e viço ao longo do tempo.</p></div>
+      <div class="p"><div class="num">05</div><h3>Skinbooster</h3><p>Hidratação profunda e qualidade de pele, com brilho saudável.</p></div>
+      <div class="p"><div class="num">06</div><h3>Rinomodelação</h3><p>Ajustes sutis no contorno do nariz, sem cirurgia.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre">
+  <div class="wrap pad sobre-in">
+    <div class="ph"><img src="/previews/dra-amanda-bezerril/img/g2.jpg" alt="Atendimento"></div>
+    <div>
+      <span class="kick">Sobre</span>
+      <h2>Cirurgiã-dentista, dedicada ao natural.</h2>
+      <p>A Dra. Amanda Bezerril é cirurgiã-dentista (CRO/RJ 59.180), com atuação em harmonização facial no Recreio dos Bandeirantes. Seu foco é entregar a sua melhor versão com naturalidade, sem exageros.</p>
+      <p>O atendimento começa por uma avaliação atenta, para indicar apenas o que faz sentido para você, com transparência em cada etapa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="pad">
+  <div class="wrap">
+    <div class="head">
+      <span class="kick">O cuidado</span>
+      <h2>Uma experiência pensada para você.</h2>
+    </div>
+    <div class="gal">
+      <div class="g"><img src="/previews/dra-amanda-bezerril/img/g1.jpg" alt="Procedimento"></div>
+      <div class="g"><img src="/previews/dra-amanda-bezerril/img/hero.jpg" alt="Cuidado facial"></div>
+      <div class="g"><img src="/previews/dra-amanda-bezerril/img/g3.jpg" alt="Ambiente"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato">
+  <div class="wrap pad contato-in">
+    <div class="cbox">
+      <span class="kick">Agende sua avaliação</span>
+      <h2>Vamos cuidar do seu rosto.</h2>
+      <ul>
+        <li><span class="t">Localização</span>Recreio dos Bandeirantes, Rio de Janeiro/RJ</li>
+        <li><span class="t">Instagram</span>@dra.amandabezerril</li>
+        <li><span class="t">Atendimento</span>Com hora marcada</li>
+      </ul>
+      <a class="btn" style="margin-top:26px" href="https://ig.me/m/dra.amandabezerril" target="_blank" rel="noopener">Falar com a Dra.</a>
+    </div>
+    <div style="display:flex;flex-direction:column;justify-content:center;gap:18px;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:34px">
+      <div class="serif" style="font-size:30px;line-height:1.15">"Entrego a sua melhor versão, sempre com naturalidade."</div>
+      <p style="color:var(--muted);font-weight:300;font-size:14px">Cada rosto é único. Por isso, cada plano também é.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="n serif">Dra. Amanda Bezerril</div>
+        <p style="margin-top:10px">Cirurgiã-dentista · CRO/RJ 59.180 · Harmonização facial no Recreio dos Bandeirantes, com foco em resultado natural.</p>
+      </div>
+      <div>
+        <p><strong style="color:var(--bg);font-weight:500">Contato</strong><br>Recreio dos Bandeirantes, Rio de Janeiro/RJ<br>@dra.amandabezerril</p>
+      </div>
+    </div>
+    <div class="note">Conteúdo de caráter informativo. Nenhum resultado é prometido ou garantido; toda indicação depende de avaliação individual. Em conformidade com o Código de Ética Odontológica (CFO).</div>
+  </div>
+</footer>
+
+<a class="wafloat" href="https://ig.me/m/dra.amandabezerril" target="_blank" rel="noopener" aria-label="Instagram">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.25 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+</a>
+
+</body>
+</html>
