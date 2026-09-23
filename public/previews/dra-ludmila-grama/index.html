@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dra. Ludmila Grama · Biomédica Esteta · Harmonização Facial em Uberlândia</title>
+<meta name="description" content="Dra. Ludmila Grama, biomédica esteta (CRBM 12356) em Uberlândia. Harmonização facial com resultado natural. Agende sua avaliação." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--cream:#F7F1E8;--cream2:#EFE6D8;--ink:#2B2420;--muted:#867B70;--gold:#AD855A;--gold-soft:#CBA57A;--line:rgba(43,36,32,.12)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:"Poppins",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Cormorant Garamond",serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:500;padding:15px 28px;border-radius:2px;background:var(--ink);color:var(--cream);transition:background .2s,transform .2s;letter-spacing:.02em}
+  .btn:hover{background:#403730;transform:translateY(-1px)}
+  .btn.gold{background:var(--gold);color:#fff}
+  .btn.gold:hover{background:var(--gold-soft)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--gold)}
+  .kick{font-size:12.5px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(247,241,232,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:80px}
+  .logo{display:flex;flex-direction:column;line-height:1.05}
+  .logo .n{font-family:"Cormorant Garamond",serif;font-size:27px;font-weight:600;letter-spacing:.01em}
+  .logo .s{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-top:5px}
+  .nav .btn{padding:11px 22px;font-size:14px}
+  @media(max-width:520px){.nav .btn{padding:10px 15px;font-size:13px}.logo .n{font-size:22px}}
+
+  /* HERO */
+  .hero{position:relative;display:grid;grid-template-columns:1fr;gap:0;min-height:100svh;align-items:center;padding:120px 0 60px}
+  @media(min-width:900px){.hero{grid-template-columns:1.05fr .95fr;gap:60px;padding-top:80px}}
+  .hero h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(40px,6.5vw,74px);line-height:1.04;letter-spacing:-.01em;margin-top:20px}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero .lead{margin-top:22px;font-size:clamp(16px,2.2vw,19px);color:var(--muted);max-width:520px;font-weight:300}
+  .hero-cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px}
+  .hero-img{position:relative}
+  .hero-img .ph{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 70px rgba(43,36,32,.16)}
+  .hero-img .ph img{width:100%;height:100%;object-fit:cover}
+  .hero-img .tag{position:absolute;left:-18px;bottom:34px;background:var(--cream);padding:20px 26px;box-shadow:0 16px 40px rgba(43,36,32,.14)}
+  .hero-img .tag .serif{font-size:20px;color:var(--ink)}
+  .hero-img .tag span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+
+  section.pad{padding:100px 0}
+  .head{max-width:640px;margin:0 auto 56px;text-align:center}
+  .head h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(32px,5.2vw,52px);line-height:1.08;margin-top:14px}
+  .head p{margin-top:14px;color:var(--muted);font-weight:300}
+
+  .proc{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+  @media(min-width:640px){.proc{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:980px){.proc{grid-template-columns:repeat(3,1fr)}}
+  .p{background:var(--cream);padding:38px 32px;transition:background .25s}
+  .p:hover{background:var(--cream2)}
+  .p .num{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:22px;color:var(--gold)}
+  .p h3{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;margin-top:10px}
+  .p p{margin-top:8px;color:var(--muted);font-size:14.5px;font-weight:300}
+
+  .sobre{background:var(--cream2)}
+  .sobre-in{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+  @media(min-width:860px){.sobre-in{grid-template-columns:1fr 1fr;gap:64px}}
+  .sobre h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(30px,5vw,46px);line-height:1.1;margin-top:14px}
+  .sobre p{margin-top:18px;color:var(--ink);font-weight:300;opacity:.85}
+  .sobre .ph{border-radius:4px;overflow:hidden;aspect-ratio:5/6;box-shadow:0 20px 50px rgba(43,36,32,.14)}
+  .sobre .ph img{width:100%;height:100%;object-fit:cover}
+
+  .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(min-width:820px){.gal{grid-template-columns:repeat(3,1fr)}}
+  .gal .g{border-radius:4px;overflow:hidden;aspect-ratio:3/4}
+  .gal .g img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .gal .g:hover img{transform:scale(1.05)}
+
+  .contato{background:var(--cream2)}
+  .contato-in{display:grid;grid-template-columns:1fr;gap:36px}
+  @media(min-width:820px){.contato-in{grid-template-columns:1fr 1fr}}
+  .cbox h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(30px,5vw,44px);line-height:1.1}
+  .cbox ul{list-style:none;margin-top:26px;display:flex;flex-direction:column;gap:18px}
+  .cbox li{font-size:15px;color:var(--ink)}
+  .cbox li .t{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:3px}
+  .map{border-radius:4px;overflow:hidden;min-height:300px;border:1px solid var(--line)}
+  .map iframe{width:100%;height:100%;min-height:300px;border:0;display:block;filter:grayscale(.3)}
+
+  footer{background:var(--ink);color:rgba(247,241,232,.82);padding:52px 0 42px}
+  .foot{display:flex;flex-direction:column;gap:22px;justify-content:space-between}
+  @media(min-width:720px){.foot{flex-direction:row}}
+  .foot .n{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;color:var(--cream)}
+  .foot p{color:rgba(247,241,232,.7);font-size:13.5px;font-weight:300;line-height:1.7;max-width:340px}
+  .note{margin-top:32px;padding-top:22px;border-top:1px solid rgba(247,241,232,.15);font-size:11.5px;color:rgba(247,241,232,.6);font-weight:300;line-height:1.6}
+  .wafloat{position:fixed;right:18px;bottom:18px;z-index:60;background:#1FA855;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+  .wafloat:hover{transform:scale(1.07)}
+  .wafloat svg{width:29px;height:29px;fill:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo"><span class="n serif">Dra. Ludmila Grama</span><span class="s">Biomédica Esteta · CRBM 12356</span></div>
+    <a class="btn gold" href="https://wa.me/5534998550854?text=Ol%C3%A1%2C%20Dra.!%20Vim%20pelo%20site%20e%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">Agendar avaliação</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap" style="display:contents">
+    <div style="padding-left:24px;padding-right:24px">
+      <span class="kick">Harmonização Facial · Uberlândia</span>
+      <h1>Seu rosto mais bonito, <em>sem ninguém saber</em> o que você fez.</h1>
+      <p class="lead">Resultados naturais, pensados para a sua face. Uma avaliação cuidadosa antes de qualquer procedimento, com técnica e bom senso.</p>
+      <div class="hero-cta">
+        <a class="btn gold" href="https://wa.me/5534998550854?text=Ol%C3%A1%2C%20Dra.!%20Vim%20pelo%20site%20e%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">Agendar no WhatsApp</a>
+        <a class="btn ghost" href="#procedimentos">Ver procedimentos</a>
+      </div>
+    </div>
+    <div class="hero-img" style="padding-left:24px;padding-right:24px">
+      <div class="ph"><img src="/previews/dra-ludmila-grama/img/hero.jpg" alt="Cuidado facial"></div>
+      <div class="tag"><div class="serif">Resultado natural</div><span>a sua essência, valorizada</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCEDIMENTOS -->
+<section class="pad" id="procedimentos">
+  <div class="wrap">
+    <div class="head">
+      <span class="kick">Procedimentos</span>
+      <h2>Cuidados faciais com técnica e naturalidade.</h2>
+      <p>Cada protocolo é indicado após avaliação individual, respeitando o seu rosto e o seu momento.</p>
+    </div>
+    <div class="proc">
+      <div class="p"><div class="num">01</div><h3>Harmonização facial</h3><p>Equilíbrio e proporção do rosto, com leitura individual de cada face.</p></div>
+      <div class="p"><div class="num">02</div><h3>Toxina botulínica</h3><p>Suavização de linhas de expressão, preservando a naturalidade.</p></div>
+      <div class="p"><div class="num">03</div><h3>Preenchimento</h3><p>Reposição de volume e contorno de forma sutil e planejada.</p></div>
+      <div class="p"><div class="num">04</div><h3>Bioestimuladores</h3><p>Estímulo de colágeno para firmeza e viço ao longo do tempo.</p></div>
+      <div class="p"><div class="num">05</div><h3>Skinbooster e hidratação</h3><p>Hidratação profunda e qualidade de pele, com brilho saudável.</p></div>
+      <div class="p"><div class="num">06</div><h3>Limpeza de pele</h3><p>Cuidado e preparo da pele para manter a saúde e a beleza.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre">
+  <div class="wrap pad sobre-in">
+    <div class="ph"><img src="/previews/dra-ludmila-grama/img/g2.jpg" alt="Atendimento"></div>
+    <div>
+      <span class="kick">Sobre</span>
+      <h2>Biomédica esteta, dedicada ao resultado natural.</h2>
+      <p>A Dra. Ludmila Grama é biomédica esteta (CRBM 12356) em Uberlândia, com atuação voltada à harmonização facial. O trabalho começa sempre por uma avaliação atenta, para indicar apenas o que faz sentido para você.</p>
+      <p>O compromisso é com a naturalidade: valorizar a sua beleza sem excessos, com transparência em cada etapa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="pad">
+  <div class="wrap">
+    <div class="head">
+      <span class="kick">O espaço</span>
+      <h2>Um ambiente pensado para o seu cuidado.</h2>
+    </div>
+    <div class="gal">
+      <div class="g"><img src="/previews/dra-ludmila-grama/img/g1.jpg" alt="Procedimento"></div>
+      <div class="g"><img src="/previews/dra-ludmila-grama/img/hero.jpg" alt="Cuidado facial"></div>
+      <div class="g"><img src="/previews/dra-ludmila-grama/img/g3.jpg" alt="Ambiente"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato">
+  <div class="wrap pad contato-in">
+    <div class="cbox">
+      <span class="kick">Agende sua avaliação</span>
+      <h2>Vamos cuidar do seu rosto.</h2>
+      <ul>
+        <li><span class="t">Endereço</span>R. Eduardo de Oliveira, 778 — Lídice, Uberlândia/MG</li>
+        <li><span class="t">WhatsApp</span>(34) 99855-0854</li>
+        <li><span class="t">Instagram</span>@draludmilagrama</li>
+      </ul>
+      <a class="btn gold" style="margin-top:26px" href="https://wa.me/5534998550854?text=Ol%C3%A1%2C%20Dra.!%20Vim%20pelo%20site%20e%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+    <div class="map">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=R.%20Eduardo%20de%20Oliveira,%20778,%20L%C3%ADdice,%20Uberl%C3%A2ndia%20MG&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="n serif">Dra. Ludmila Grama</div>
+        <p style="margin-top:10px">Biomédica esteta · CRBM 12356 · Harmonização facial em Uberlândia, com foco em resultado natural.</p>
+      </div>
+      <div>
+        <p><strong style="color:var(--cream);font-weight:500">Contato</strong><br>R. Eduardo de Oliveira, 778 — Lídice, Uberlândia/MG<br>WhatsApp (34) 99855-0854 · @draludmilagrama</p>
+      </div>
+    </div>
+    <div class="note">Conteúdo de caráter informativo. Nenhum resultado é prometido ou garantido; toda indicação depende de avaliação individual. Em conformidade com as normas de publicidade do Conselho Federal de Biomedicina.</div>
+  </div>
+</footer>
+
+<a class="wafloat" href="https://wa.me/5534998550854?text=Ol%C3%A1%2C%20Dra.!%20Vim%20pelo%20site%20e%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.25 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+</a>
+
+</body>
+</html>
