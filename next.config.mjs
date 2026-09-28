@@ -11,6 +11,12 @@ const nextConfig = {
           has: [{ type: "host", value: "(www\\.)?cieestrelaguia\\.com\\.br" }],
           destination: "/previews/estrela-guia/index.html",
         },
+        // Domínio próprio da Faceta Company (clínica de facetas do Fernando).
+        {
+          source: "/",
+          has: [{ type: "host", value: "(www\\.)?facetacompany\\.com\\.br" }],
+          destination: "/previews/faceta-company/index.html",
+        },
       ],
       afterFiles: [
         // Landing page de vendas de LPs, servida como HTML estático em /lps
