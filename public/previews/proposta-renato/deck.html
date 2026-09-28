@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Proposta Mouve · Dr. Renato Takeuti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--ink:#000;--surface:#0C0B09;--surface2:#141109;--gold:#9E7A2E;--gold-hi:#B0842F;--gold-soft:#C9A45B;--paper:#E7E2D8;--muted:#8F887C;--line:rgba(231,226,216,.14)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:#050505;font-family:"Poppins",sans-serif;color:var(--paper);-webkit-font-smoothing:antialiased}
+  .serif{font-family:"Instrument Serif",serif;font-style:italic}
+  .display{font-family:"Bricolage Grotesque",sans-serif}
+  .kick{font-size:15px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-hi)}
+
+  /* deck / slide sizing: 1280x720 base, scaled to viewport */
+  .deck{scroll-snap-type:y mandatory;height:100vh;overflow-y:auto;scroll-behavior:smooth}
+  .slide{scroll-snap-align:start;height:100vh;display:flex;align-items:center;justify-content:center;position:relative}
+  .stage{position:relative;width:min(100vw,177.78vh);height:min(56.25vw,100vh);background:var(--ink);overflow:hidden}
+  .pad{position:absolute;inset:0;padding:6.2% 7.2%;display:flex;flex-direction:column;justify-content:center}
+  .grain{position:absolute;inset:0;opacity:.05;mix-blend-mode:overlay;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+  .aura{position:absolute;inset-inline:0;top:-18%;height:70%;background:radial-gradient(55% 60% at 50% 0,rgba(158,122,46,.24),transparent 70%);pointer-events:none}
+  .pad>*{position:relative;z-index:2}
+  .wm{font-family:"Bricolage Grotesque";font-weight:800;font-size:2.5vh;letter-spacing:-.02em}
+  .wm .v{color:var(--gold-hi)}
+  .num{position:absolute;bottom:4.5%;right:7.2%;z-index:3;font-size:1.7vh;color:var(--muted);letter-spacing:.1em}
+  .foot{position:absolute;bottom:4.5%;left:7.2%;z-index:3;font-size:1.6vh;color:var(--muted)}
+
+  h1{font-family:"Bricolage Grotesque";font-weight:800;font-size:7.6vh;line-height:1.0;letter-spacing:-.03em}
+  h1 em{font-family:"Instrument Serif";font-style:italic;font-weight:400;color:var(--gold-soft)}
+  h2{font-family:"Bricolage Grotesque";font-weight:800;font-size:5.6vh;line-height:1.05;letter-spacing:-.02em}
+  h2 em{font-family:"Instrument Serif";font-style:italic;font-weight:400;color:var(--gold-soft)}
+  .lead{margin-top:2.4vh;font-size:2.5vh;color:rgba(231,226,216,.8);font-weight:300;max-width:80%}
+  .lead b{color:var(--paper);font-weight:500}
+  .kick+h1,.kick+h2{margin-top:2.2vh}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.6vh 2.4vh;margin-top:3.4vh}
+  .item{background:var(--surface2);border:1px solid var(--line);border-radius:1.4vh;padding:2.1vh 2.2vh;display:flex;gap:1.4vh;align-items:flex-start}
+  .item .c{color:var(--gold-hi);font-weight:700;font-size:2.2vh;line-height:1}
+  .item h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:2.05vh}
+  .item p{margin-top:.4vh;color:var(--muted);font-size:1.6vh;font-weight:300;line-height:1.4}
+
+  .invest{display:grid;grid-template-columns:1.1fr .9fr;gap:5vh;align-items:center}
+  .card{background:var(--surface2);border:1px solid var(--gold);border-radius:2.4vh;padding:4vh 3.4vh;box-shadow:0 3vh 8vh rgba(158,122,46,.18)}
+  .card .plano{font-family:"Bricolage Grotesque";font-weight:700;font-size:2.6vh}
+  .card .de{margin-top:1.4vh;font-size:2vh;color:var(--muted);text-decoration:line-through}
+  .card .price{font-family:"Bricolage Grotesque";font-weight:800;font-size:9vh;letter-spacing:-.02em;line-height:1;margin-top:.4vh}
+  .card .price small{font-family:"Poppins";font-weight:400;font-size:2.6vh;color:var(--muted)}
+  .card .setup{font-size:1.9vh;color:var(--gold-soft);margin-top:1.2vh}
+  .clist{list-style:none;display:flex;flex-direction:column;gap:1.5vh}
+  .clist li{font-size:2.2vh;color:rgba(231,226,216,.9);display:flex;gap:1.4vh;font-weight:300}
+  .clist li::before{content:"✓";color:var(--gold-hi);font-weight:600}
+  .anchor{margin-top:2.4vh;font-size:1.9vh;color:var(--muted)}
+  .anchor b{color:var(--gold-soft);font-weight:500}
+  .btn{display:inline-flex;align-items:center;gap:1vh;font-weight:600;font-size:2.1vh;padding:1.8vh 3.4vh;border-radius:99px;background:var(--gold);color:#170f02;margin-top:3.4vh}
+  .center{text-align:center;align-items:center}
+  .center .lead{max-width:70%;margin-inline:auto}
+
+  .hint{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:20;font-size:12px;color:#6b665d;letter-spacing:.05em}
+  @media print{
+    @page{size:1280px 720px;margin:0}
+    html,body{background:#000}
+    .deck{height:auto;overflow:visible;scroll-snap-type:none}
+    .slide{height:720px;page-break-after:always;display:block}
+    .stage{width:1280px;height:720px}
+    .hint{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- 1 capa -->
+  <section class="slide"><div class="stage"><div class="aura"></div><div class="grain"></div>
+    <div class="pad">
+      <div class="wm">mou<span class="v">ve</span>.</div>
+      <span class="kick" style="margin-top:5vh">Proposta comercial</span>
+      <h1 class="display" style="margin-top:2vh;max-width:15ch">Uma presença digital <em>à altura do seu nome.</em></h1>
+      <p class="lead" style="margin-top:3vh">Preparada para <b>Dr. Renato Takeuti</b><br>Medicina estética e oftalmologia</p>
+    </div>
+    <div class="foot">Mouve · Sites por assinatura</div>
+    <div class="num">01</div>
+  </div></section>
+
+  <!-- 2 o momento -->
+  <section class="slide"><div class="stage"><div class="grain"></div>
+    <div class="pad">
+      <span class="kick">O momento</span>
+      <h2 class="display">Você construiu autoridade. <em>Falta a casa própria.</em></h2>
+      <p class="lead">Mais de <b>44 mil pessoas</b> acompanham o seu trabalho e você é referência em rejuvenescimento. Mas hoje a porta de entrada é um link genérico, dividido com dezenas de perfis.</p>
+      <p class="lead" style="margin-top:2vh">Um nome como o seu merece um <b>site próprio</b>: com a sua identidade, a seriedade do seu consultório e trabalhando 24h por dia, dentro das normas do CFM.</p>
+    </div>
+    <div class="foot">Mouve · Proposta comercial</div><div class="num">02</div>
+  </div></section>
+
+  <!-- 3 solucao -->
+  <section class="slide"><div class="stage"><div class="aura"></div><div class="grain"></div>
+    <div class="pad center">
+      <span class="kick">A solução · Plano Referência</span>
+      <h2 class="display" style="margin-top:2vh">O plano mais completo, <em>tudo incluso.</em></h2>
+      <p class="lead">A Mouve cria, mantém e hospeda o seu site. Você só aprova. Sem custo de criação, sem ferramenta pra aprender, sem parte técnica.</p>
+    </div>
+    <div class="foot">Mouve · Proposta comercial</div><div class="num">03</div>
+  </div></section>
+
+  <!-- 4 incluso -->
+  <section class="slide"><div class="stage"><div class="grain"></div>
+    <div class="pad">
+      <span class="kick">O que está incluso</span>
+      <div class="grid2">
+        <div class="item"><span class="c">✦</span><div><h3>Site profissional completo</h3><p>Sua trajetória, procedimentos e contato, no tom do CFM.</p></div></div>
+        <div class="item"><span class="c">✦</span><div><h3>Domínio próprio incluso</h3><p>drrenatotakeuti.com.br, registrado e renovado por nós.</p></div></div>
+        <div class="item"><span class="c">✦</span><div><h3>E-mail corporativo</h3><p>contato@seudominio, com credibilidade.</p></div></div>
+        <div class="item"><span class="c">✦</span><div><h3>Hospedagem, SSL e velocidade</h3><p>Sempre no ar, seguro e rápido em qualquer tela.</p></div></div>
+        <div class="item"><span class="c">✦</span><div><h3>Landing pages para campanhas</h3><p>Páginas de alta conversão pro seu tráfego pago.</p></div></div>
+        <div class="item"><span class="c">✦</span><div><h3>WhatsApp e agendamento</h3><p>O paciente sai do site direto pra agenda.</p></div></div>
+        <div class="item"><span class="c">✦</span><div><h3>SEO para o Google te achar</h3><p>Configurado pra aparecer pra quem procura você.</p></div></div>
+        <div class="item"><span class="c">✦</span><div><h3>Ajustes ilimitados e prioritários</h3><p>Trocamos textos e imagens quando precisar, com prioridade.</p></div></div>
+      </div>
+    </div>
+    <div class="foot">Mouve · Proposta comercial</div><div class="num">04</div>
+  </div></section>
+
+  <!-- 5 investimento -->
+  <section class="slide"><div class="stage"><div class="aura"></div><div class="grain"></div>
+    <div class="pad">
+      <span class="kick">Investimento</span>
+      <div class="invest" style="margin-top:2.4vh">
+        <div class="card">
+          <div class="plano">Plano Referência</div>
+          <div class="de">de R$247/mês</div>
+          <div class="price">R$129<small>/mês</small></div>
+          <div class="setup">Sem custo de criação · domínio incluso</div>
+        </div>
+        <div>
+          <ul class="clist">
+            <li>Site completo + landing pages</li>
+            <li>Domínio próprio e e-mail corporativo</li>
+            <li>Hospedagem, SSL e SEO</li>
+            <li>WhatsApp e agendamento</li>
+            <li>Ajustes ilimitados e prioridade</li>
+          </ul>
+          <p class="anchor">Fábricas nacionais cobram <b>de R$147 a R$247/mês</b>. Aqui você fala direto com quem faz.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot">Mouve · Proposta comercial</div><div class="num">05</div>
+  </div></section>
+
+  <!-- 6 final -->
+  <section class="slide"><div class="stage"><div class="aura"></div><div class="grain"></div>
+    <div class="pad center">
+      <span class="kick">Próximo passo</span>
+      <h2 class="display" style="margin-top:2vh;font-size:6.4vh">Seu site no ar <em>ainda esta semana.</em></h2>
+      <p class="lead">Um "sim" e a gente começa hoje. O site provisório entra no ar em 24 horas.</p>
+      <a class="btn" href="https://wa.me/5534984251140?text=Ol%C3%A1!%20Recebi%20a%20proposta%20da%20Mouve%20e%20quero%20come%C3%A7ar." target="_blank" rel="noopener">Aceitar e começar</a>
+      <div style="margin-top:4vh;font-size:1.8vh;color:var(--muted)">mouvecreative.com.br · @mouvecreative · (34) 98425-1140</div>
+    </div>
+    <div class="num">06</div>
+  </div></section>
+
+</div>
+<div class="hint">use ← / → ou role para navegar</div>
+<script>
+  const deck=document.getElementById('deck');
+  const slides=[...document.querySelectorAll('.slide')];
+  let i=0;
+  function go(n){i=Math.max(0,Math.min(slides.length-1,n));slides[i].scrollIntoView();}
+  addEventListener('keydown',e=>{
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1);}
+    if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(i-1);}
+  });
+  deck.addEventListener('scroll',()=>{i=Math.round(deck.scrollTop/window.innerHeight);});
+</script>
+</body>
+</html>
