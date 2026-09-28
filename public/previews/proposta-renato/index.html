@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Proposta Mouve · Dr. Renato Takeuti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--ink:#000;--surface:#0C0B09;--surface2:#131109;--gold:#9E7A2E;--gold-hi:#B0842F;--gold-soft:#C9A45B;--paper:#E7E2D8;--muted:#918B80;--line:rgba(231,226,216,.12)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--ink);color:var(--paper);font-family:"Poppins",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",serif;font-style:italic}
+  .display{font-family:"Bricolage Grotesque",sans-serif}
+  .wrap{max-width:880px;margin:0 auto;padding:0 28px}
+  .grain{position:fixed;inset:0;z-index:1;opacity:.045;mix-blend-mode:overlay;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+  .kick{font-size:12.5px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-hi)}
+  a{color:inherit;text-decoration:none}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;padding:15px 30px;border-radius:999px;background:var(--gold);color:#170f02;transition:transform .2s,background .2s}
+  .btn:hover{transform:translateY(-2px);background:var(--gold-soft)}
+  section{position:relative;z-index:2}
+
+  /* capa */
+  .capa{padding:90px 0 70px;border-bottom:1px solid var(--line)}
+  .wm{font-family:"Bricolage Grotesque";font-weight:800;font-size:30px;letter-spacing:-.02em}
+  .wm .v{color:var(--gold-hi)}
+  .capa h1{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(38px,7vw,64px);line-height:1.02;letter-spacing:-.03em;margin-top:40px}
+  .capa h1 em{font-family:"Instrument Serif";font-style:italic;font-weight:400;color:var(--gold-soft)}
+  .capa .para{margin-top:22px;font-size:18px;color:rgba(231,226,216,.8)}
+  .capa .para b{color:var(--paper);font-weight:500}
+  .capa .meta{margin-top:28px;font-size:13px;color:var(--muted);letter-spacing:.03em}
+
+  .block{padding:66px 0;border-bottom:1px solid var(--line)}
+  .block h2{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(26px,4.6vw,40px);line-height:1.08;letter-spacing:-.02em;margin-top:14px}
+  .block h2 em{font-family:"Instrument Serif";font-style:italic;font-weight:400;color:var(--gold-soft)}
+  .block p{margin-top:18px;color:rgba(231,226,216,.78);font-weight:300;font-size:16.5px}
+  .block p b{color:var(--paper);font-weight:500}
+
+  .incluso{display:grid;grid-template-columns:1fr;gap:14px;margin-top:30px}
+  @media(min-width:640px){.incluso{grid-template-columns:1fr 1fr}}
+  .item{background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:22px 24px;display:flex;gap:14px}
+  .item .c{color:var(--gold-hi);font-weight:700;font-size:18px}
+  .item h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:16.5px}
+  .item p{margin-top:4px;color:var(--muted);font-size:13.5px;font-weight:300}
+
+  /* investimento */
+  .invest{padding:70px 0;text-align:center;border-bottom:1px solid var(--line)}
+  .card{max-width:460px;margin:34px auto 0;background:var(--surface2);border:1px solid var(--gold);border-radius:22px;padding:44px 36px;box-shadow:0 24px 70px rgba(158,122,46,.16)}
+  .card .plano{font-family:"Bricolage Grotesque";font-weight:700;font-size:22px}
+  .card .de{margin-top:16px;font-size:15px;color:var(--muted);text-decoration:line-through}
+  .card .price{font-family:"Bricolage Grotesque";font-weight:800;font-size:64px;letter-spacing:-.02em;line-height:1;margin-top:4px}
+  .card .price small{font-family:"Poppins";font-weight:400;font-size:18px;color:var(--muted)}
+  .card .setup{font-size:14px;color:var(--gold-soft);margin-top:10px}
+  .card ul{list-style:none;margin-top:24px;text-align:left;display:flex;flex-direction:column;gap:11px}
+  .card li{font-size:14.5px;color:rgba(231,226,216,.85);display:flex;gap:10px;font-weight:300}
+  .card li::before{content:"✓";color:var(--gold-hi);font-weight:600}
+  .anchor{margin-top:22px;font-size:14px;color:var(--muted)}
+  .anchor b{color:var(--gold-soft);font-weight:500}
+
+  .final{padding:80px 0 90px;text-align:center}
+  .final h2{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(28px,5vw,46px);line-height:1.04;letter-spacing:-.02em}
+  .final h2 em{font-family:"Instrument Serif";font-style:italic;font-weight:400;color:var(--gold-soft)}
+  .final p{color:var(--muted);margin-top:14px;font-weight:300}
+  .final .btn{margin-top:30px}
+  .foot{padding:30px 0;text-align:center;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- CAPA -->
+<section class="capa"><div class="wrap">
+  <div class="wm">mou<span class="v">ve</span>.</div>
+  <span class="kick" style="display:block;margin-top:44px">Proposta comercial</span>
+  <h1 class="display">Uma presença digital <em>à altura do seu nome.</em></h1>
+  <p class="para">Preparada para <b>Dr. Renato Takeuti</b> · Medicina estética e oftalmologia</p>
+  <p class="meta">Mouve · Sites por assinatura · @mouvecreative</p>
+</div></section>
+
+<!-- O MOMENTO -->
+<section class="block"><div class="wrap">
+  <span class="kick">O momento</span>
+  <h2 class="display">Você construiu autoridade. <em>Falta a casa própria.</em></h2>
+  <p>Mais de <b>44 mil pessoas</b> acompanham o seu trabalho, e você é referência em rejuvenescimento natural. Mas hoje, quando alguém quer te conhecer melhor ou agendar, a porta de entrada é um link genérico, dividido com dezenas de outros perfis.</p>
+  <p>Um nome como o seu merece um <b>site próprio</b>: um endereço com a sua identidade, que transmite a mesma seriedade do seu consultório e que trabalha por você 24 horas por dia, dentro das normas do CFM.</p>
+</div></section>
+
+<!-- A SOLUCAO -->
+<section class="block"><div class="wrap">
+  <span class="kick">A solução · Plano Referência</span>
+  <h2 class="display">O plano mais completo, <em>tudo incluso.</em></h2>
+  <p>A Mouve cria, mantém e hospeda o seu site. Você só aprova. Sem custo de criação, sem ferramenta pra aprender, sem dor de cabeça técnica.</p>
+  <div class="incluso">
+    <div class="item"><span class="c">✦</span><div><h3>Site profissional completo</h3><p>Institucional com sua trajetória, procedimentos e contato, no tom do CFM.</p></div></div>
+    <div class="item"><span class="c">✦</span><div><h3>Domínio próprio incluso</h3><p>drrenatotakeuti.com.br, registrado e renovado por nossa conta.</p></div></div>
+    <div class="item"><span class="c">✦</span><div><h3>E-mail corporativo</h3><p>contato@seudominio, transmitindo credibilidade.</p></div></div>
+    <div class="item"><span class="c">✦</span><div><h3>Hospedagem, SSL e velocidade</h3><p>Sempre no ar, seguro e rápido em qualquer dispositivo.</p></div></div>
+    <div class="item"><span class="c">✦</span><div><h3>Landing pages para campanhas</h3><p>Páginas de alta conversão para o seu tráfego pago.</p></div></div>
+    <div class="item"><span class="c">✦</span><div><h3>Integração com WhatsApp e agenda</h3><p>O paciente sai do site direto para o agendamento.</p></div></div>
+    <div class="item"><span class="c">✦</span><div><h3>SEO para o Google te achar</h3><p>Configuração para aparecer para quem procura você.</p></div></div>
+    <div class="item"><span class="c">✦</span><div><h3>Ajustes ilimitados e prioritários</h3><p>Trocamos textos e imagens sempre que precisar, com prioridade.</p></div></div>
+  </div>
+</div></section>
+
+<!-- INVESTIMENTO -->
+<section class="invest"><div class="wrap">
+  <span class="kick">Investimento</span>
+  <h2 class="display" style="margin-top:14px;font-size:clamp(26px,4.6vw,40px)">Simples e sem surpresa.</h2>
+  <div class="card">
+    <div class="plano">Plano Referência</div>
+    <div class="de">de R$247/mês</div>
+    <div class="price">R$129<small>/mês</small></div>
+    <div class="setup">Sem custo de criação · domínio incluso</div>
+    <ul>
+      <li>Site completo + landing pages</li>
+      <li>Domínio próprio e e-mail corporativo</li>
+      <li>Hospedagem, SSL e SEO</li>
+      <li>Integração com WhatsApp e agenda</li>
+      <li>Ajustes ilimitados e atendimento prioritário</li>
+    </ul>
+  </div>
+  <p class="anchor">Fábricas de site nacionais cobram <b>de R$147 a R$247/mês</b> por menos que isso. Aqui você fala direto com quem faz, aqui do Brasil.</p>
+</div></section>
+
+<!-- FINAL -->
+<section class="final"><div class="wrap">
+  <span class="kick">Próximo passo</span>
+  <h2 class="display" style="margin-top:12px">Seu site no ar <em>ainda esta semana.</em></h2>
+  <p>Um "sim" e a gente começa hoje. O site provisório entra no ar em 24 horas.</p>
+  <a class="btn" href="https://wa.me/5534984251140?text=Ol%C3%A1!%20Recebi%20a%20proposta%20da%20Mouve%20e%20quero%20come%C3%A7ar." target="_blank" rel="noopener">Aceitar e começar</a>
+</div></section>
+
+<div class="foot">Mouve · Sites por assinatura · mouvecreative.com.br · @mouvecreative · WhatsApp (34) 98425-1140</div>
+
+</body>
+</html>
