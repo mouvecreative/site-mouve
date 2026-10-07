@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Checklist Rennova Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* Layout: coluna única de leitura, barra de progresso fixa embaixo com o envio */
+  :root{
+    --bg:#120E0B; --panel:#1A1511; --panel2:#221B16;
+    --ink:#EFE6DA; --muted:#A3968A; --bronze:#9C774B; --bronze2:#B8925F;
+    --line:rgba(184,146,95,.22); --ok:#7F9A6B;
+    --serif:"Cormorant Garamond",Georgia,serif; --sans:"Montserrat",system-ui,sans-serif;
+    color-scheme:dark;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 16px 140px}
+  .wrap{max-width:720px;margin:0 auto}
+  a{color:var(--bronze2)}
+
+  header{padding-block:64px 40px;border-bottom:1px solid var(--line)}
+  .kick{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--bronze2);font-weight:500}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,8vw,64px);line-height:1;margin-top:18px;text-wrap:balance}
+  h1 em{font-style:italic;color:var(--bronze2);font-weight:400}
+  .intro{margin-top:20px;color:var(--muted);max-width:60ch;font-size:15px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:26px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .meta b{color:var(--ink);font-weight:500}
+
+  section{padding-block:44px 8px}
+  .sh{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:18px}
+  h2{font-family:var(--serif);font-weight:500;font-size:32px;line-height:1.1}
+  h2 small{display:block;font-family:var(--sans);font-size:13px;color:var(--muted);font-weight:300;margin-top:6px;letter-spacing:0}
+  .count{font-size:12px;letter-spacing:.18em;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+  .item{border-top:1px solid var(--line);padding-block:20px}
+  .item:last-child{border-bottom:1px solid var(--line)}
+  .row{display:flex;gap:16px;align-items:flex-start;cursor:pointer}
+  .row input[type=checkbox]{appearance:none;flex:none;width:24px;height:24px;border:1px solid var(--bronze);border-radius:50%;margin-top:2px;display:grid;place-items:center;cursor:pointer;transition:background .2s}
+  .row input[type=checkbox]::after{content:"";width:7px;height:12px;border:solid var(--bg);border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px);opacity:0}
+  .row input[type=checkbox]:checked{background:var(--bronze2);border-color:var(--bronze2)}
+  .row input[type=checkbox]:checked::after{opacity:1}
+  .row input[type=checkbox]:focus-visible{outline:2px solid var(--bronze2);outline-offset:3px}
+  .txt{min-width:0}
+  .txt h3{font-size:16px;font-weight:500;line-height:1.4}
+  .item.done .txt h3{color:var(--muted)}
+  .txt p{font-size:14px;color:var(--muted);margin-top:4px}
+  .how{margin-top:10px;font-size:13.5px;color:var(--muted);background:var(--panel);border-left:2px solid var(--bronze);padding:12px 16px}
+  .how ol{padding-left:18px}
+  .how li+li{margin-top:3px}
+  .field{margin:14px 0 0 40px}
+  .field label{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .field input,.field textarea{width:100%;background:var(--panel);border:1px solid var(--line);color:var(--ink);font:inherit;font-size:15px;padding:12px 14px;border-radius:2px}
+  .field textarea{min-height:84px;resize:vertical}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--bronze2)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:560px){.field{margin-left:0}.two{grid-template-columns:1fr}}
+
+  .note{margin-top:40px;font-size:13.5px;color:var(--muted);border:1px solid var(--line);padding:18px 20px}
+  .note b{color:var(--ink);font-weight:500}
+
+  .bar{position:fixed;left:0;right:0;bottom:0;background:rgba(18,14,11,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px))}
+  .bar .in{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:18px}
+  .prog{flex:1;min-width:0}
+  .prog .l{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums}
+  .prog .l b{color:var(--ink);font-weight:500}
+  .track{height:3px;background:var(--panel2);margin-top:8px;border-radius:2px;overflow:hidden}
+  .fill{height:100%;width:0;background:var(--bronze2);transition:width .35s ease}
+  .send{flex:none;background:var(--bronze2);color:var(--bg);border:0;font:inherit;font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:14px 20px;border-radius:2px;cursor:pointer;text-decoration:none}
+  .send:hover{background:var(--ink)}
+  .send:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  footer{margin-top:56px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:center}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kick">Mouve · Onboarding</div>
+    <h1>Rennova <em>Experience</em></h1>
+    <p class="intro">Dra. Julianna, este é o checklist do que precisamos para colocar o lançamento no ar: landing page, campanha e conteúdo. Marque cada item conforme for resolvendo e preencha os campos. Ao final, toque em <b>Enviar para a Mouve</b> e suas respostas seguem pelo WhatsApp.</p>
+    <div class="meta"><span>Curso <b>29 e 30 de outubro</b></span><span>Local <b>Sede Rennova, Goiânia</b></span><span>Prazo <b>até 10 de outubro</b></span></div>
+  </header>
+
+  <form id="f" novalidate>
+
+  <section data-sec="Informações do curso">
+    <div class="sh"><h2>Informações do curso<small>Entram na landing page e nos anúncios.</small></h2><span class="count"></span></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-valor" /><div class="txt"><h3>Valor e formas de pagamento</h3><p>Valor cheio, lote promocional (se houver), parcelamento e Pix.</p></div></label>
+      <div class="field"><label for="valor">Resposta</label><textarea id="valor" placeholder="Ex.: R$ ... à vista no Pix ou 10x de R$ ... no cartão. 1º lote até dia ..."></textarea></div></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-vagas" /><div class="txt"><h3>Vagas e horários</h3><p>Quantas vagas no total e o horário de cada dia.</p></div></label>
+      <div class="field two"><div><label for="vagas">Número de vagas</label><input id="vagas" inputmode="numeric" /></div><div><label for="horario">Horários</label><input id="horario" placeholder="29/10 das ... às ... | 30/10 ..." /></div></div></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-publico" /><div class="txt"><h3>Público e pré-requisitos</h3><p>Quais profissionais podem participar (médicos, dentistas, biomédicos, enfermeiros) e se precisam ter experiência prévia.</p></div></label>
+      <div class="field"><label for="publico">Resposta</label><textarea id="publico"></textarea></div></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-inclui" /><div class="txt"><h3>O que está incluso</h3><p>Certificado, pacientes modelo, produtos, coffee break, material de apoio.</p></div></label>
+      <div class="field"><label for="inclui">Resposta</label><textarea id="inclui"></textarea></div></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-inscricao" /><div class="txt"><h3>Link de inscrição e atendimento</h3><p>Para onde o interessado vai: link do Grupo VIP, link de pagamento e o WhatsApp de quem responde as dúvidas.</p></div></label>
+      <div class="field two"><div><label for="link">Link do Grupo VIP ou pagamento</label><input id="link" type="url" placeholder="https://" /></div><div><label for="whats">WhatsApp de atendimento</label><input id="whats" inputmode="tel" placeholder="(62) 9...." /></div></div></div>
+  </section>
+
+  <section data-sec="Sobre você">
+    <div class="sh"><h2>Sobre você<small>Para a seção de autoridade da página.</small></h2><span class="count"></span></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-bio" /><div class="txt"><h3>Mini-currículo</h3><p>Formação, registro profissional, anos de experiência, quantos alunos já formou e o que diferencia seu trabalho.</p></div></label>
+      <div class="field"><label for="bio">Resposta</label><textarea id="bio"></textarea></div></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-insta" /><div class="txt"><h3>Instagram</h3></div></label>
+      <div class="field"><label for="insta">@ do perfil</label><input id="insta" placeholder="@" /></div></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-fotos" /><div class="txt"><h3>Fotos e vídeos em alta resolução</h3><p>Retratos seus, você atendendo, turmas anteriores, a sede da Rennova. Vídeos curtos de aula ou hands-on rendem os melhores anúncios. Envie os arquivos originais, não print nem foto enviada pelo WhatsApp.</p></div></label>
+      <div class="field"><label for="fotos">Link da pasta (Google Drive, WeTransfer ou iCloud)</label><input id="fotos" type="url" placeholder="https://" /></div></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-depo" /><div class="txt"><h3>Depoimentos de alunas</h3><p>Prints ou vídeos de quem já fez curso com você. Pode ir na mesma pasta das fotos.</p></div></label></div>
+  </section>
+
+  <section data-sec="Acessos">
+    <div class="sh"><h2>Acessos<small>Nenhuma senha. A Mouve entra como parceira e você aprova.</small></h2><span class="count"></span></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-bm" /><div class="txt"><h3>Portfólio empresarial (Meta Business)</h3><p>Confirme se você tem um portfólio empresarial no Meta e nos passe o ID.</p></div></label>
+      <div class="how"><ol><li>Acesse business.facebook.com</li><li>Clique em Configurações (ícone de engrenagem)</li><li>Em Informações do negócio, copie o número do ID do portfólio</li></ol></div>
+      <div class="field"><label for="bmid">ID do portfólio</label><input id="bmid" inputmode="numeric" /></div></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-ads" /><div class="txt"><h3>Conta de anúncios</h3><p>O ID da conta onde os anúncios vão rodar. Se não tiver uma, nos avise que criamos junto.</p></div></label>
+      <div class="how"><ol><li>No mesmo portfólio, vá em Contas e depois Contas de anúncios</li><li>Copie o número de identificação da conta</li></ol></div>
+      <div class="field"><label for="adsid">ID da conta de anúncios</label><input id="adsid" inputmode="numeric" /></div></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-pag" /><div class="txt"><h3>Forma de pagamento na conta de anúncios</h3><p>Cadastre o cartão de crédito diretamente na conta de anúncios. A Mouve não tem acesso aos dados do cartão.</p></div></label></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-ig" /><div class="txt"><h3>Instagram conectado ao portfólio</h3><p>O Instagram precisa estar como conta profissional e vinculado à página do Facebook dentro do portfólio, para os anúncios saírem no seu perfil.</p></div></label></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-aprova" /><div class="txt"><h3>Aprovar o pedido de parceria da Mouve</h3><p>Depois que você enviar os IDs, a Mouve pede acesso à conta de anúncios, à página e ao Instagram. Vai chegar uma notificação no seu Meta Business: é só aprovar.</p></div></label></div>
+  </section>
+
+  <section data-sec="Campanha">
+    <div class="sh"><h2>Campanha<small>Para planejarmos a distribuição até o dia do curso.</small></h2><span class="count"></span></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-verba" /><div class="txt"><h3>Verba de anúncios</h3><p>Quanto você quer investir em anúncios do lançamento até 28 de outubro. Esse valor é pago direto ao Meta.</p></div></label>
+      <div class="field"><label for="verba">Valor total</label><input id="verba" placeholder="R$" /></div></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-regiao" /><div class="txt"><h3>Onde estão suas alunas</h3><p>Só Goiânia e região, Centro-Oeste ou Brasil todo? Já vieram alunas de outros estados?</p></div></label>
+      <div class="field"><label for="regiao">Resposta</label><textarea id="regiao"></textarea></div></div>
+
+    <div class="item"><label class="row"><input type="checkbox" id="c-obs" /><div class="txt"><h3>Algo mais que devemos saber</h3><p>Parcerias, cupons, restrições da Rennova sobre uso de marca, datas de outras ações.</p></div></label>
+      <div class="field"><label for="obs">Resposta</label><textarea id="obs"></textarea></div></div>
+  </section>
+
+  </form>
+
+  <p class="note"><b>Seu progresso fica salvo neste aparelho.</b> Pode fechar e voltar depois. Se preferir mandar só uma parte agora, toque em Enviar mesmo assim: a mensagem leva o que já estiver preenchido.</p>
+
+  <footer>Mouve · Marketing para saúde e estética</footer>
+</div>
+
+<div class="bar"><div class="in">
+  <div class="prog"><div class="l"><b id="done">0</b> de <span id="total">0</span> itens</div><div class="track"><div class="fill" id="fill"></div></div></div>
+  <a class="send" id="send" href="#" target="_blank" rel="noopener">Enviar para a Mouve</a>
+</div></div>
+
+<script>
+(function(){
+  var MOUVE = "5534984251140";
+  var KEY = "rennova-onboarding-v1";
+  var form = document.getElementById("f");
+  var boxes = Array.prototype.slice.call(form.querySelectorAll('input[type=checkbox]'));
+  var fields = Array.prototype.slice.call(form.querySelectorAll('.field input, .field textarea'));
+
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ return {}; } }
+  function save(){
+    var s = {};
+    boxes.forEach(function(b){ s[b.id] = b.checked; });
+    fields.forEach(function(f){ s[f.id] = f.value; });
+    try{ localStorage.setItem(KEY, JSON.stringify(s)); }catch(e){}
+  }
+  var st = load();
+  boxes.forEach(function(b){ if (st[b.id]) b.checked = true; });
+  fields.forEach(function(f){ if (st[f.id]) f.value = st[f.id]; });
+
+  // Preencher um campo marca o item automaticamente
+  fields.forEach(function(f){
+    f.addEventListener("input", function(){
+      var box = f.closest(".item").querySelector('input[type=checkbox]');
+      if (f.value.trim() && !box.checked) box.checked = true;
+      render(); save();
+    });
+  });
+  boxes.forEach(function(b){ b.addEventListener("change", function(){ render(); save(); }); });
+
+  function render(){
+    var n = boxes.filter(function(b){ return b.checked; }).length;
+    document.getElementById("done").textContent = n;
+    document.getElementById("total").textContent = boxes.length;
+    document.getElementById("fill").style.width = (n / boxes.length * 100) + "%";
+    boxes.forEach(function(b){ b.closest(".item").classList.toggle("done", b.checked); });
+    form.querySelectorAll("section").forEach(function(sec){
+      var bs = sec.querySelectorAll('input[type=checkbox]'), c = 0;
+      bs.forEach(function(b){ if (b.checked) c++; });
+      sec.querySelector(".count").textContent = c + "/" + bs.length;
+    });
+    document.getElementById("send").href = "https://wa.me/" + MOUVE + "?text=" + encodeURIComponent(message());
+  }
+
+  function message(){
+    var out = ["*Checklist Rennova Experience*", "Dra. Julianna Munilla", ""];
+    form.querySelectorAll("section").forEach(function(sec){
+      out.push("*" + sec.dataset.sec + "*");
+      sec.querySelectorAll(".item").forEach(function(it){
+        var b = it.querySelector('input[type=checkbox]');
+        out.push((b.checked ? "[x] " : "[ ] ") + it.querySelector("h3").textContent);
+        it.querySelectorAll(".field input, .field textarea").forEach(function(f){
+          var v = f.value.trim();
+          if (v) out.push("   " + f.parentNode.querySelector("label").textContent + ": " + v);
+        });
+      });
+      out.push("");
+    });
+    return out.join("\n");
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
