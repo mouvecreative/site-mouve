@@ -62,7 +62,7 @@
 
   /* hero */
   .hero{display:grid;grid-template-columns:1fr}
-  .hero .ph{position:relative;aspect-ratio:4/5;max-height:min(52svh,480px);overflow:hidden;background:#cfcfca}
+  .hero .ph{position:relative;width:100%;height:min(56svh,520px);overflow:hidden;background:#cfcfca}
   .hero .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
   .hero .txt{padding:44px var(--g) 56px;display:flex;flex-direction:column;align-items:center;text-align:center}
   .hero .pre{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin-bottom:34px}
@@ -73,7 +73,7 @@
   .seal{margin-top:34px;display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
   @media(min-width:960px){
     .hero{grid-template-columns:1fr 1fr;height:min(calc(100svh - 68px),900px);min-height:640px}
-    .hero .ph{order:2;aspect-ratio:auto;max-height:none;height:100%}
+    .hero .ph{order:2;height:100%}
     .hero .txt{justify-content:center;padding:72px var(--g)}
   }
 
@@ -109,13 +109,13 @@
 
   /* fechamento */
   .final{display:grid;grid-template-columns:1fr}
-  .final .ph{aspect-ratio:4/5;max-height:min(70svh,620px);overflow:hidden}
+  .final .ph{width:100%;height:min(70svh,620px);overflow:hidden}
   .final .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
   .final .txt{padding:64px var(--g) calc(72px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
   .final .date{font-family:var(--serif);font-size:clamp(34px,4vw,52px);margin-top:28px;line-height:1.1}
   .final .place{margin-top:10px;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-d)}
   .final .btn{margin-top:40px}
-  @media(min-width:960px){.final{grid-template-columns:1fr 1fr;height:min(90svh,860px);min-height:620px}.final .ph{aspect-ratio:auto;max-height:none;height:100%}}
+  @media(min-width:960px){.final{grid-template-columns:1fr 1fr;height:min(90svh,860px);min-height:620px}.final .ph{height:100%}}
 
   .reveal{opacity:1;transform:none;transition:opacity .9s ease,transform .9s ease}
   .js .reveal.wait{opacity:0;transform:translateY(24px)}
