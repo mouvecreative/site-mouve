@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dr. Bruno Merola · Facetas</title>
+<meta name="description" content="Facetas estratificadas em cerâmica, planejadas uma a uma para o seu rosto. Dr. Bruno Merola, cirurgião-dentista.">
+<link rel="icon" href="img/simbolo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* Layout: página única, bandas alternando azul-noite e gelo; fotos reais em grande, texto curto. Look único, sem tema automático. */
+  :root{
+    --noite:#0A1424;
+    --noite-2:#14213A;
+    --gelo:#F1F2F4;
+    --papel:#F8F9FB;
+    --pedra:#D3D8E3;
+    --tinta:#101A2E;
+    --cinza:#6B7488;
+    --cinza-claro:#9AA6BF;
+    --ouro:#8A6A42;
+    --ouro-claro:#B8956A;
+    --display:'Josefin Sans','Futura',Helvetica,sans-serif;
+    --body:'Jost',-apple-system,'Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--gelo);color:var(--tinta);font-family:var(--body);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1140px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  section{padding-block:88px}
+  h1,h2,h3{font-family:var(--display);font-weight:300;text-wrap:balance;line-height:1.2}
+  h2{font-size:clamp(26px,3.4vw,38px);letter-spacing:.06em}
+  .eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--ouro);margin-bottom:16px}
+  .ouro{background:linear-gradient(100deg,#6E4F2C 0%,#A27F52 45%,#7C5B34 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .noite .ouro{background-image:linear-gradient(100deg,#B08F63 0%,#DCC098 45%,#A9875A 100%)}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border:1px solid var(--ouro-claro);color:var(--ouro-claro);text-decoration:none;font-size:12px;letter-spacing:.28em;text-transform:uppercase;transition:background .2s,color .2s}
+  .btn:hover,.btn:focus-visible{background:var(--ouro-claro);color:var(--noite);outline:none}
+  .btn.cheio{background:var(--ouro-claro);color:var(--noite)}
+  .btn.cheio:hover{background:#DCC098}
+  .claro .btn{border-color:var(--ouro);color:var(--ouro)}
+  .claro .btn:hover{background:var(--ouro);color:var(--gelo)}
+
+  /* topo */
+  header{position:sticky;top:0;z-index:10;background:rgba(10,20,36,.92);backdrop-filter:blur(8px);color:var(--gelo);border-bottom:1px solid rgba(184,149,106,.2)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
+  .marca{display:flex;align-items:center;gap:14px;text-decoration:none}
+  .marca img{width:34px;height:auto}
+  .marca span{font-family:var(--display);font-weight:300;font-size:13px;letter-spacing:.3em;text-transform:uppercase}
+  nav{display:flex;gap:28px}
+  nav a{font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--cinza-claro)}
+  nav a:hover{color:var(--ouro-claro)}
+  @media (max-width:760px){nav{display:none}}
+
+  /* hero */
+  .hero{background:radial-gradient(120% 110% at 50% 0%,var(--noite-2) 0%,var(--noite) 70%);color:var(--gelo);padding-block:0}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;min-height:min(86vh,760px)}
+  .hero .txt{padding-block:72px}
+  .hero h1{font-size:clamp(32px,5vw,58px);letter-spacing:.04em;margin-bottom:22px}
+  .hero p{font-size:17px;color:var(--cinza-claro);max-width:44ch;margin-bottom:34px}
+  .hero .foto{position:relative;align-self:stretch;min-height:420px}
+  .hero .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% 18%}
+  .hero .foto::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--noite) 0%,transparent 28%)}
+  @media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:0;min-height:0}.hero .txt{padding-block:56px 40px}.hero .foto{min-height:360px;margin:0 calc(-1 * max(20px,env(safe-area-inset-left,0px)))}.hero .foto::after{background:linear-gradient(180deg,var(--noite) 0%,transparent 30%)}}
+
+  /* antes e depois: comparador deslizante */
+  .cmp{position:relative;margin-top:40px;aspect-ratio:3/2;max-width:100%;overflow:hidden;background:var(--pedra);user-select:none}
+  .cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+  .cmp img.antes{clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+  .cmp .linha{position:absolute;top:0;bottom:0;left:var(--p);width:2px;background:var(--ouro-claro);transform:translateX(-1px);pointer-events:none}
+  .cmp .linha i{position:absolute;top:50%;left:50%;width:44px;height:44px;border-radius:50%;background:var(--noite);border:1px solid var(--ouro-claro);transform:translate(-50%,-50%)}
+  .cmp .linha i::before,.cmp .linha i::after{content:"";position:absolute;top:50%;width:7px;height:7px;border-top:1px solid var(--ouro-claro);border-left:1px solid var(--ouro-claro)}
+  .cmp .linha i::before{left:12px;transform:translateY(-50%) rotate(-45deg)}
+  .cmp .linha i::after{right:12px;transform:translateY(-50%) rotate(135deg)}
+  .cmp .rot{position:absolute;bottom:0;padding:10px 16px;background:rgba(10,20,36,.85);color:var(--ouro-claro);font-size:11px;letter-spacing:.3em;text-transform:uppercase;pointer-events:none}
+  .cmp .rot.a{left:0} .cmp .rot.d{right:0}
+  .cmp input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+  .cmp input:focus-visible + .linha,.cmp:focus-within .linha{background:#DCC098}
+  .ad .nota{margin-top:16px;font-size:13px;color:var(--cinza)}
+
+  /* sobre */
+  .sobre{background:var(--noite);color:var(--gelo)}
+  .sobre .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+  .sobre .foto{aspect-ratio:3/4;max-width:100%;overflow:hidden}
+  .sobre .foto img{width:100%;height:100%;object-fit:cover;object-position:60% 30%}
+  .sobre p{color:var(--cinza-claro);margin-bottom:16px;max-width:52ch}
+  .sobre .cro{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro-claro);margin-top:22px}
+  @media (max-width:860px){.sobre .wrap{grid-template-columns:1fr}}
+
+  /* como funciona */
+  .passos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+  .passo{background:var(--papel);border:1px solid var(--pedra);padding:34px 28px 30px}
+  .passo .num{font-family:var(--display);font-size:34px;font-weight:300;margin-bottom:14px}
+  .passo h3{font-size:18px;letter-spacing:.08em;margin-bottom:10px}
+  .passo p{font-size:15px;color:var(--cinza)}
+  @media (max-width:760px){.passos{grid-template-columns:1fr}}
+
+
+  /* contato */
+  .contato{text-align:center}
+  .contato h2{margin-bottom:14px}
+  .contato p{color:var(--cinza);max-width:46ch;margin:0 auto 30px}
+  .contato .num{display:block;margin-top:22px;font-size:14px;letter-spacing:.14em;color:var(--cinza)}
+
+  footer{background:var(--noite);color:var(--cinza-claro);padding-block:34px;font-size:12px;letter-spacing:.08em}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  footer img{width:28px}
+  .pend{outline:1px dashed var(--ouro);outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="marca" href="#"><img src="img/simbolo.svg" alt="" width="34" height="40"><span>Dr. Bruno Merola</span></a>
+    <nav aria-label="Seções">
+      <a href="#resultados">Resultados</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#como">Como funciona</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero noite">
+  <div class="wrap">
+    <div class="txt">
+      <div class="eyebrow">Facetas estratificadas em cerâmica</div>
+      <h1>Um sorriso novo que <span class="ouro">parece seu.</span></h1>
+      <p>Cada faceta é feita em camadas, à mão, para o seu rosto, a sua pele e o seu jeito de sorrir. Nada de dentes de catálogo.</p>
+      <a class="btn cheio" href="https://wa.me/5562981103094?text=Ol%C3%A1%2C%20Dr.%20Bruno.%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">Agendar avaliação</a>
+    </div>
+    <div class="foto"><img src="img/espelho.jpg" alt="Paciente vendo o novo sorriso no espelho" width="1600" height="1067"></div>
+  </div>
+</section>
+
+<section class="ad claro" id="resultados">
+  <div class="wrap">
+    <div class="eyebrow">Resultados</div>
+    <h2>Antes e depois, sem filtro.</h2>
+    <div class="cmp" id="cmp" style="--p:50%">
+      <img src="img/depois-sorriso.jpg" alt="Sorriso da paciente depois das facetas estratificadas" loading="lazy" width="1600" height="1067">
+      <img class="antes" src="img/antes-sorriso.jpg" alt="Sorriso da paciente antes do tratamento" loading="lazy" width="1600" height="1000">
+      <span class="rot a">Antes</span><span class="rot d">Depois</span>
+      <div class="linha" aria-hidden="true"><i></i></div>
+      <input type="range" id="cmp-range" min="0" max="100" value="50" aria-label="Arraste para comparar antes e depois">
+    </div>
+    <p class="nota">Fotos sem edição, com autorização da paciente. Cada caso é único e os resultados variam de pessoa para pessoa.</p>
+  </div>
+</section>
+
+<section class="sobre noite" id="sobre">
+  <div class="wrap">
+    <div class="foto"><img src="img/atendimento-2.jpg" alt="Dr. Bruno Merola durante um atendimento" loading="lazy" width="1067" height="1600"></div>
+    <div>
+      <div class="eyebrow">Sobre</div>
+      <h2>Dr. Bruno Merola</h2>
+      <p style="margin-top:18px">Cirurgião-dentista dedicado a facetas estratificadas: a técnica em que a cerâmica é construída camada por camada, reproduzindo a translucidez e as nuances de cor do dente natural.</p>
+      <p>O trabalho começa muito antes da cerâmica. Começa em entender o que você quer mudar e o que você quer manter.</p>
+      <div class="cro"><span class="pend">CRO-GO 00000</span> · Goiânia, GO</div>
+    </div>
+  </div>
+</section>
+
+<section class="claro" id="como">
+  <div class="wrap">
+    <div class="eyebrow">Como funciona</div>
+    <h2>Três etapas, um resultado.</h2>
+    <div class="passos">
+      <div class="passo"><div class="num ouro">1</div><h3>Avaliação</h3><p>Conversa, fotos e análise do sorriso em relação ao rosto. Você sai sabendo o que é possível e o que faz sentido para você.</p></div>
+      <div class="passo"><div class="num ouro">2</div><h3>Planejamento</h3><p>Desenho do novo sorriso e teste na boca antes de qualquer procedimento definitivo. Você vê e aprova.</p></div>
+      <div class="passo"><div class="num ouro">3</div><h3>Facetas</h3><p>Cerâmica estratificada à mão, ajustada uma a uma e cimentada com preparo mínimo do dente.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contato claro" id="contato">
+  <div class="wrap">
+    <div class="eyebrow">Contato</div>
+    <h2>Vamos conversar sobre o seu sorriso.</h2>
+    <p>A avaliação é o primeiro passo. Chame no WhatsApp e a equipe responde com os horários disponíveis.</p>
+    <a class="btn" href="https://wa.me/5562981103094?text=Ol%C3%A1%2C%20Dr.%20Bruno.%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    <span class="num">(62) 98110-3094 · Goiânia, GO</span>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="img/simbolo.svg" alt="" width="28" height="33">
+    <span>Dr. Bruno Merola · Cirurgião-dentista · <span class="pend">CRO-GO 00000</span></span>
+    <span>Responsável técnico: <span class="pend">Dr. Bruno Merola</span></span>
+  </div>
+</footer>
+
+<script>
+  var cmp = document.getElementById("cmp"), range = document.getElementById("cmp-range");
+  range.addEventListener("input", function () { cmp.style.setProperty("--p", range.value + "%"); });
+</script>
+</body>
+</html>
