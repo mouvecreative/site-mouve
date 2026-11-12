@@ -17,11 +17,12 @@ const nextConfig = {
           has: [{ type: "host", value: "(www\\.)?facetacompany\\.com\\.br" }],
           destination: "/previews/faceta-company/index.html",
         },
-        // Domínio próprio da Dra. Julianna Munilla: a home serve a LP do curso Fill Experience.
+        // Domínio próprio da Dra. Julianna Munilla: a home serve o site institucional dela.
+        // A LP do Fill Experience segue em /previews/fill-experience, ligada pela aba Cursos.
         {
           source: "/",
           has: [{ type: "host", value: "(www\\.)?drajuliannamunilla\\.com\\.br" }],
-          destination: "/previews/fill-experience/index.html",
+          destination: "/previews/dra-julianna-munilla/index.html",
         },
       ],
       afterFiles: [
