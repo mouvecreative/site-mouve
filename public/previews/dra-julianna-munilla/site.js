@@ -1,9 +1,17 @@
 // WhatsApp da equipe: cada botão leva a mensagem pronta do seu data-msg
 var WHATSAPP = "5562998337198";
-document.querySelectorAll("[data-msg]").forEach(function (a) {
-  a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(a.dataset.msg);
-  a.target = "_blank"; a.rel = "noopener";
-});
+// Nos botões de contato, a cidade escolhida no seletor entra na mensagem
+var cidade = document.getElementById("cidade");
+function montarLinks() {
+  document.querySelectorAll("[data-msg]").forEach(function (a) {
+    var msg = a.dataset.msg;
+    if (cidade && a.closest(".opcoes")) msg += " Cidade de atendimento: " + cidade.value + ".";
+    a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
+    a.target = "_blank"; a.rel = "noopener";
+  });
+}
+montarLinks();
+if (cidade) cidade.addEventListener("change", montarLinks);
 
 // Menu do celular
 var botao = document.querySelector(".menu"), nav = document.getElementById("nav");

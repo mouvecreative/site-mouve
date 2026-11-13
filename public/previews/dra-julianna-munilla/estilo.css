@@ -130,3 +130,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
 .js .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.js .reveal{opacity:1;transform:none}}
+
+/* nomes que não quebram linha */
+.nw{white-space:nowrap}
+/* escolha da cidade antes dos botões de contato */
+.cidade{display:block;margin-top:40px;font-size:13px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze-l)}
+.cidade select{display:block;width:100%;margin-top:12px;padding:16px 18px;background:var(--espresso);color:var(--cream);border:1px solid var(--line-d);border-radius:2px;font:400 16px var(--sans);letter-spacing:0;text-transform:none}
+.cidade select:focus-visible{outline:2px solid var(--bronze-l);outline-offset:2px}
+.outros{margin-top:12px}
+.outros a{display:inline-block;padding:6px 0;color:var(--cream);border-bottom:1px solid var(--bronze-l)}
+.outros a:hover{color:var(--bronze-l)}
