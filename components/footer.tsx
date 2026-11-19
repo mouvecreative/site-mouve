@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { Arrow } from "@/components/arrow";
 
 const LINKS = [
   { href: "/sobre", label: "Sobre" },
@@ -20,14 +21,16 @@ export function Footer() {
           <div className="max-w-sm">
             <Link
               href="/"
-              className="inline-flex items-baseline font-display text-2xl font-extrabold tracking-tight"
+              className="inline-flex items-center gap-2 font-display text-2xl font-extrabold uppercase tracking-tight text-brand-paper"
             >
-              <span className="text-brand-paper">mou</span>
-              <span className="text-gold-grad">ve</span>
-              <span className="text-brand-gold">.</span>
+              MOUVE
+              <Arrow className="h-4 w-6 text-brand-gold" />
             </Link>
-            <p className="mt-4 font-serif text-lg italic text-brand-paper/60">
-              Marketing que move: estratégia, conteúdo e crescimento de verdade.
+            <p className="mt-4 font-display text-lg font-bold uppercase tracking-tight text-brand-paper/70">
+              Move. Create. Impact.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-brand-paper/50">
+              Não seguimos tendências. Construímos marcas.
             </p>
             <div className="mt-6">
               <WhatsAppButton
@@ -58,12 +61,12 @@ export function Footer() {
                 Social
               </span>
               <a
-                href="https://instagram.com/agencia_mouve"
+                href="https://instagram.com/mouvecreative"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-brand-paper/70 transition-colors hover:text-brand-paper"
               >
-                @agencia_mouve
+                @mouvecreative
               </a>
             </div>
           </div>

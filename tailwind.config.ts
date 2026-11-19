@@ -6,15 +6,15 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          blue: "#9E7A2E",
-          gold: "#9E7A2E",
-          goldHi: "#C6982F",
-          goldDark: "#4D3D23",
-          ink: "#000000",
-          surface: "#0C0B09",
-          surface2: "#131109",
-          paper: "#E4E0D7",
-          muted: "#9A948A",
+          blue: "#B98A3B",
+          gold: "#B98A3B",
+          goldHi: "#D7A94E",
+          goldDark: "#6E5324",
+          ink: "#111111",
+          surface: "#1A1A1B",
+          surface2: "#242526",
+          paper: "#EFEFED",
+          muted: "#8C8C8C",
         },
       },
       fontFamily: {

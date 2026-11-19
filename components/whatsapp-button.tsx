@@ -17,7 +17,7 @@ export function WhatsAppButton({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 py-3 text-sm font-semibold",
+        "group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 py-3 text-sm font-semibold transition-transform duration-100 ease-out will-change-transform active:scale-[0.97]",
         variant === "default" && "bg-brand-blue text-brand-ink",
         variant === "outline" &&
           "border border-brand-paper/40 bg-transparent text-brand-paper"
