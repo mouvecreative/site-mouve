@@ -11,7 +11,7 @@ import { METHOD_STEPS } from "@/lib/method-steps";
 
 // prefix opcional (ex.: "R$") renderizado antes do número animado.
 const STATS: [string, string, string?][] = [
-  ["27", "Clientes ativos"],
+  ["7", "Anos no mercado"],
   ["100 mil+", "Geridos em tráfego/mês", "R$ "],
   ["98%", "Taxa de retenção"],
 ];
