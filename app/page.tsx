@@ -252,14 +252,14 @@ export default function Home() {
       {/* CTA FINAL */}
       <section className="relative w-full overflow-hidden px-6 py-28 sm:py-40">
         <DottedGlowBackground
-          className="pointer-events-none absolute inset-0 opacity-70 [mask-image:radial-gradient(70%_70%_at_50%_50%,#000,transparent)]"
-          gap={16}
-          radius={1.3}
-          color="rgba(185,138,59,0.35)"
-          glowColor="rgba(215,169,78,0.9)"
-          opacity={0.9}
-          speedMin={0.2}
-          speedMax={1.1}
+          className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(85%_85%_at_50%_50%,#000,transparent)]"
+          gap={20}
+          radius={2}
+          color="rgba(185,138,59,0.6)"
+          glowColor="rgba(230,185,95,1)"
+          opacity={1}
+          speedMin={0.3}
+          speedMax={1.6}
         />
         <div className="relative z-10 mx-auto max-w-5xl">
           <Reveal>
