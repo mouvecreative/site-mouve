@@ -121,8 +121,8 @@ function HeroCopy() {
         Do ponto ao <span className="text-gold-grad">movimento.</span>
       </h1>
       <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-brand-paper/70">
-        Agência de marca premium de Uberlândia. Estratégia, criação e tráfego
-        num time só — construímos marcas que se movem.
+        Agência de marca premium. Estratégia, criação e tráfego num time só.
+        Construímos marcas que se movem.
       </p>
       <div className="mt-9 flex justify-center">
         <WhatsAppButton
@@ -149,7 +149,7 @@ function Reframe() {
         A Mouve move a marca inteira.
       </p>
       <p className="mt-6 max-w-xl text-lg leading-relaxed text-brand-ink/75">
-        Identidade, site, conteúdo e campanha falando a mesma língua — com
+        Identidade, site, conteúdo e campanha falando a mesma língua, com
         número na mesa todo mês.
       </p>
     </div>

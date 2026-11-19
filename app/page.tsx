@@ -9,9 +9,10 @@ import { Arrow } from "@/components/arrow";
 import { Reveal } from "@/components/reveal";
 import { METHOD_STEPS } from "@/lib/method-steps";
 
-const STATS: [string, string][] = [
+// prefix opcional (ex.: "R$") renderizado antes do número animado.
+const STATS: [string, string, string?][] = [
   ["27", "Clientes ativos"],
-  ["15", "Segmentos atendidos"],
+  ["100 mil+", "Geridos em tráfego/mês", "R$ "],
   ["98%", "Taxa de retenção"],
 ];
 
@@ -57,9 +58,10 @@ export default function Home() {
             </h2>
           </Reveal>
           <dl className="mt-16 grid grid-cols-1 gap-12 sm:grid-cols-3 sm:gap-8">
-            {STATS.map(([value, label]) => (
+            {STATS.map(([value, label, prefix]) => (
               <Reveal key={label} className="border-t border-brand-paper/15 pt-6">
-                <dd className="font-display text-7xl font-extrabold tracking-[-0.03em] text-brand-paper sm:text-8xl">
+                <dd className="font-display text-6xl font-extrabold tracking-[-0.03em] text-brand-paper sm:text-7xl">
+                  {prefix}
                   <CountUp value={value} />
                 </dd>
                 <dt className="mt-3 text-sm font-medium uppercase tracking-[0.2em] text-brand-paper/55">
@@ -260,7 +262,7 @@ export default function Home() {
             </h2>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-brand-paper/70">
               Conte pra gente onde sua marca está hoje. Devolvemos um diagnóstico
-              honesto e o próximo passo — sem promessa mágica.
+              honesto e o próximo passo, sem promessa mágica.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
               <WhatsAppButton
