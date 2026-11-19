@@ -41,21 +41,27 @@ export function CineticHero() {
     };
   }, [scrollYProgress]);
 
+  // dark -> dourado (inversão, seta preta + reframe) -> volta pro dark no fim,
+  // pra emendar com o corpo escuro da home.
   const bg = useTransform(
     scrollYProgress,
-    [0, 0.5, 0.85],
-    ["#111111", "#111111", "#B98A3B"]
+    [0, 0.45, 0.7, 1],
+    ["#111111", "#111111", "#B98A3B", "#111111"]
   );
-  const arrowScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 2.2, 3.4]);
-  const arrowX = useTransform(scrollYProgress, [0, 1], ["0%", "55%"]);
+  const arrowScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 2.4, 3.2]);
+  const arrowX = useTransform(scrollYProgress, [0, 1], ["0%", "52%"]);
   const arrowColor = useTransform(
     scrollYProgress,
-    [0.45, 0.6],
-    ["#B98A3B", "#111111"]
+    [0.4, 0.5, 0.82, 0.95],
+    ["#B98A3B", "#111111", "#111111", "#B98A3B"]
   );
   const introOpacity = useTransform(scrollYProgress, [0, 0.22], [1, 0]);
-  const reframeOpacity = useTransform(scrollYProgress, [0.62, 0.85], [0, 1]);
-  const reframeY = useTransform(scrollYProgress, [0.62, 0.85], [24, 0]);
+  const reframeOpacity = useTransform(
+    scrollYProgress,
+    [0.55, 0.68, 0.84, 0.96],
+    [0, 1, 1, 0]
+  );
+  const reframeY = useTransform(scrollYProgress, [0.55, 0.68], [24, 0]);
 
   if (reduce) {
     return (

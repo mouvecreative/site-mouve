@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { Hero } from "@/components/hero";
+import { CineticHero } from "@/components/cinetic-hero";
 import { MethodStep } from "@/components/method-step";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { PainelMock } from "@/components/painel-mock";
@@ -44,9 +44,7 @@ const CONTRATACAO = [
 export default function Home() {
   return (
     <main>
-      <div className="mx-auto max-w-6xl px-6 pt-20">
-        <Hero />
-      </div>
+      <CineticHero />
 
       {/* prova em números */}
       <section className="mx-auto max-w-6xl px-6 pt-20">
