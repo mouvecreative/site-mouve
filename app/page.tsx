@@ -7,6 +7,7 @@ import { PainelMock } from "@/components/painel-mock";
 import { CountUp } from "@/components/count-up";
 import { Arrow } from "@/components/arrow";
 import { Reveal } from "@/components/reveal";
+import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 import { METHOD_STEPS } from "@/lib/method-steps";
 
 // prefix opcional (ex.: "R$") renderizado antes do número animado.
@@ -249,8 +250,18 @@ export default function Home() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="w-full px-6 py-28 sm:py-40">
-        <div className="mx-auto max-w-5xl">
+      <section className="relative w-full overflow-hidden px-6 py-28 sm:py-40">
+        <DottedGlowBackground
+          className="pointer-events-none absolute inset-0 opacity-70 [mask-image:radial-gradient(70%_70%_at_50%_50%,#000,transparent)]"
+          gap={16}
+          radius={1.3}
+          color="rgba(185,138,59,0.35)"
+          glowColor="rgba(215,169,78,0.9)"
+          opacity={0.9}
+          speedMin={0.2}
+          speedMax={1.1}
+        />
+        <div className="relative z-10 mx-auto max-w-5xl">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-gold">
               Comece pelo ponto
