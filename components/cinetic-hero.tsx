@@ -48,8 +48,18 @@ export function CineticHero() {
     [0, 0.45, 0.7, 1],
     ["#111111", "#111111", "#B98A3B", "#111111"]
   );
-  const arrowScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 2.4, 3.2]);
-  const arrowX = useTransform(scrollYProgress, [0, 1], ["0%", "52%"]);
+  // cresce pra preencher (inversão) e depois volta centralizada e menor, pra o
+  // reframe ficar em cima e embaixo da seta, igual à primeira dobra.
+  const arrowScale = useTransform(
+    scrollYProgress,
+    [0, 0.5, 0.72, 1],
+    [1, 3.2, 1.3, 1.2]
+  );
+  const arrowX = useTransform(
+    scrollYProgress,
+    [0, 0.5, 0.72, 1],
+    ["0%", "42%", "0%", "0%"]
+  );
   const arrowColor = useTransform(
     scrollYProgress,
     [0.4, 0.5, 0.82, 0.95],
@@ -104,7 +114,7 @@ export function CineticHero() {
         {/* reframe (sobre o dourado) */}
         <motion.div
           style={{ opacity: reframeOpacity, y: reframeY }}
-          className="absolute inset-0 flex items-start px-6 pt-28 sm:px-10 sm:pt-32"
+          className="absolute inset-0 flex items-center justify-center px-6 sm:px-10"
         >
           <Reframe />
         </motion.div>
@@ -142,21 +152,21 @@ function HeroCopy({ middle }: { middle?: ReactNode }) {
   );
 }
 
+// Texto em cima e embaixo da seta (que cai no vão central), igual à abertura.
 function Reframe() {
   return (
-    <div className="max-w-2xl">
-      <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-ink/60">
-        Por que a Mouve
-      </p>
-      <h2 className="mt-5 font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-brand-ink sm:text-6xl">
-        A maioria entrega
-        <br />
-        peça solta.
+    <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+      <h2 className="font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-brand-ink sm:text-6xl">
+        A maioria entrega peça solta.
       </h2>
-      <p className="mt-5 font-display text-2xl font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-brand-ink/70 sm:text-3xl">
+      <div
+        aria-hidden
+        className="h-[34vw] max-h-[380px] min-h-[130px] w-full"
+      />
+      <p className="font-display text-2xl font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-brand-ink sm:text-4xl">
         A Mouve move a marca inteira.
       </p>
-      <p className="mt-6 max-w-xl text-lg leading-relaxed text-brand-ink/75">
+      <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-ink/75">
         Identidade, site, conteúdo e campanha falando a mesma língua, com
         número na mesa todo mês.
       </p>
