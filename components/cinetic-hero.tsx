@@ -66,10 +66,7 @@ export function CineticHero() {
   if (reduce) {
     return (
       <div>
-        <section className="relative flex min-h-screen flex-col justify-between overflow-hidden bg-brand-ink px-6 py-20 text-brand-paper">
-          <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-brand-paper/60">
-            Mouve
-          </p>
+        <section className="relative flex min-h-screen flex-col items-center justify-center gap-10 overflow-hidden bg-brand-ink px-6 py-24 text-brand-paper">
           <div className="pointer-events-none flex justify-center">
             <Arrow className="h-auto w-[46vw] text-brand-gold" />
           </div>
@@ -100,11 +97,8 @@ export function CineticHero() {
         {/* abertura (sobre o preto) */}
         <motion.div
           style={{ opacity: introOpacity }}
-          className="absolute inset-0 flex flex-col justify-between px-6 py-16 text-brand-paper sm:px-10 sm:py-20"
+          className="absolute inset-0 flex flex-col justify-center px-6 text-brand-paper sm:px-10"
         >
-          <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-brand-paper/60">
-            Mouve
-          </p>
           <HeroCopy />
         </motion.div>
 
