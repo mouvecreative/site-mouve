@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import {
   motion,
   useMotionValue,
@@ -66,11 +66,10 @@ export function CineticHero() {
   if (reduce) {
     return (
       <div>
-        <section className="relative flex min-h-screen flex-col items-center justify-center gap-10 overflow-hidden bg-brand-ink px-6 py-24 text-brand-paper">
-          <div className="pointer-events-none flex justify-center">
-            <Arrow className="h-auto w-[46vw] text-brand-gold" />
-          </div>
-          <HeroCopy />
+        <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-brand-ink px-6 py-24 text-brand-paper">
+          <HeroCopy
+            middle={<Arrow className="h-auto w-[46vw] text-brand-gold" />}
+          />
         </section>
         <section className="flex min-h-screen items-center bg-brand-gold px-6 py-20">
           <Reframe />
@@ -89,7 +88,7 @@ export function CineticHero() {
         <motion.div
           aria-hidden
           style={{ scale: arrowScale, x: arrowX, color: arrowColor }}
-          className="pointer-events-none absolute flex items-center justify-center"
+          className="pointer-events-none absolute inset-0 flex items-center justify-center"
         >
           <Arrow className="h-auto w-[44vw]" />
         </motion.div>
@@ -114,13 +113,22 @@ export function CineticHero() {
   );
 }
 
-function HeroCopy() {
+// `middle` ocupa o espaço reservado entre o título e o subtítulo. No modo
+// animado fica vazio (a seta absoluta cai nesse vão); no reduced-motion recebe
+// a seta estática, para o texto ficar em cima e embaixo dela.
+function HeroCopy({ middle }: { middle?: ReactNode }) {
   return (
-    <div className="mx-auto max-w-4xl text-center">
+    <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
       <h1 className="font-display text-[3.2rem] font-extrabold uppercase leading-[0.92] tracking-[-0.02em] text-brand-paper sm:text-8xl">
         Do ponto ao <span className="text-gold-grad">movimento.</span>
       </h1>
-      <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-brand-paper/70">
+      <div
+        aria-hidden={!middle}
+        className="flex h-[30vw] max-h-[360px] min-h-[120px] w-full items-center justify-center"
+      >
+        {middle}
+      </div>
+      <p className="mx-auto max-w-xl text-lg leading-relaxed text-brand-paper/70">
         Agência de marca premium. Estratégia, criação e tráfego num time só.
         Construímos marcas que se movem.
       </p>
