@@ -31,11 +31,11 @@ const COMPARISON: [string, string, string][] = [
 ];
 
 const DIAGNOSTICO_MSG =
-  "Olá! Vim pelo site e quero meu diagnóstico gratuito da minha marca com a Mouve.";
+  "Olá! Vim pelo site e quero meu diagnóstico da minha marca com a Mouve.";
 
 const CONTRATACAO = [
   { number: "01", title: "Você pede o diagnóstico", description: "Leva menos de um minuto. A gente te chama no WhatsApp pra marcar a conversa." },
-  { number: "02", title: "Diagnóstico gratuito", description: "Conversa online sobre o momento da sua marca, os objetivos e as oportunidades." },
+  { number: "02", title: "Diagnóstico", description: "Conversa online sobre o momento da sua marca, os objetivos e as oportunidades." },
   { number: "03", title: "Proposta e assinatura", description: "Escopo e valor definidos, com tudo alinhado antes de começar." },
   { number: "04", title: "Onboarding", description: "Explicamos o processo, as rotinas e as entregas." },
   { number: "05", title: "Plano estratégico", description: "Você recebe o plano pra aprovar e a gente põe a marca no ar." },
@@ -267,7 +267,7 @@ export default function Home() {
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
               <WhatsAppButton
                 message={DIAGNOSTICO_MSG}
-                label="Quero meu diagnóstico gratuito"
+                label="Quero meu diagnóstico"
               />
               <Link
                 href="/planos"

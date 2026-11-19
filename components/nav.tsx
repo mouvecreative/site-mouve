@@ -18,8 +18,8 @@ export function Nav() {
         </Link>
         <div className="pointer-events-auto">
           <WhatsAppButton
-            message="Olá! Vim pelo site e quero meu diagnóstico gratuito da minha marca com a Mouve."
-            label="Diagnóstico gratuito"
+            message="Olá! Vim pelo site e quero meu diagnóstico da minha marca com a Mouve."
+            label="Diagnóstico"
           />
         </div>
       </div>

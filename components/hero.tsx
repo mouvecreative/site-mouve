@@ -95,8 +95,8 @@ export function Hero() {
           className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4"
         >
           <WhatsAppButton
-            message="Olá! Vim pelo site e quero meu diagnóstico gratuito da minha marca com a Mouve."
-            label="Peça seu diagnóstico gratuito"
+            message="Olá! Vim pelo site e quero meu diagnóstico da minha marca com a Mouve."
+            label="Peça seu diagnóstico"
           />
           <Link
             href="/metodo"

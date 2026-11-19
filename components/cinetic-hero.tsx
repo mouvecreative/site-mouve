@@ -11,7 +11,7 @@ import { Arrow } from "@/components/arrow";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 
 const DIAGNOSTICO_MSG =
-  "Olá! Vim pelo site e quero meu diagnóstico gratuito da minha marca com a Mouve.";
+  "Olá! Vim pelo site e quero meu diagnóstico da minha marca com a Mouve.";
 
 // Hero scrollytelling no modelo Studio Impacto, mas com a assinatura da Mouve:
 // a seta cresce e desliza enquanto o fundo inverte preto -> dourado, e o texto
@@ -135,7 +135,7 @@ function HeroCopy({ middle }: { middle?: ReactNode }) {
       <div className="mt-9 flex justify-center">
         <WhatsAppButton
           message={DIAGNOSTICO_MSG}
-          label="Peça seu diagnóstico gratuito"
+          label="Peça seu diagnóstico"
         />
       </div>
     </div>
