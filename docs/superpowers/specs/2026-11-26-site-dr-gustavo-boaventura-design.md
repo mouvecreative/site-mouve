@@ -68,3 +68,7 @@ O Fernando falou em resultado (público e ação), não em ferramenta; a escolha
 
 - Texto das seções no tom da marca, sem inventar fatos.
 - Layout, movimento, versão de celular, acessibilidade e a imagem de compartilhamento.
+
+## Mudanças depois da publicação
+
+- 26/11/2026: a pedido do Fernando, a foto do Gustavo saiu do site. A abertura ficou só com texto, e o Λ gigante, cortado pela borda e quase da cor do fundo, passou do Sobre para a abertura. As fotos recortadas foram apagadas.
