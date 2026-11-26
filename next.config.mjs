@@ -24,7 +24,13 @@ const nextConfig = {
           has: [{ type: "host", value: "(www\\.)?drajuliannamunilla\\.com\\.br" }],
           destination: "/previews/dra-julianna-munilla/index.html",
         },
-        // Domínio do Dr. Gustavo Boaventura: o formulário do Curso Full Face fica em /cursos.
+        // Domínio do Dr. Gustavo Boaventura: a home é o site para pacientes,
+        // e o formulário do Curso Full Face fica em /cursos.
+        {
+          source: "/",
+          has: [{ type: "host", value: "(www\\.)?drgustavoboaventura\\.com\\.br" }],
+          destination: "/previews/dr-gustavo-boaventura/index.html",
+        },
         {
           source: "/cursos",
           has: [{ type: "host", value: "(www\\.)?drgustavoboaventura\\.com\\.br" }],
@@ -38,18 +44,6 @@ const nextConfig = {
         { source: "/sites", destination: "/previews/mouve-sites/index.html" },
       ],
     };
-  },
-  async redirects() {
-    return [
-      // A home do domínio do Dr. Gustavo leva ao formulário enquanto ele não tiver um site próprio.
-      // Temporário (307) de propósito: quando a home existir, é só tirar esta regra.
-      {
-        source: "/",
-        has: [{ type: "host", value: "(www\\.)?drgustavoboaventura\\.com\\.br" }],
-        destination: "/cursos",
-        permanent: false,
-      },
-    ];
   },
   async headers() {
     return [
