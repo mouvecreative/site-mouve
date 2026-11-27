@@ -11,6 +11,10 @@ function criarAmbiente() {
   const abas = [];
   const emails = [];
   const gatilhos = [];
+  // Escritas ainda não confirmadas (flush) e travas soltas com escrita pendente.
+  let pendentes = 0;
+  const violacoes = [];
+  let falhasDeEmail = 0;
   // Como a planilha de verdade: o apóstrofo do começo só marca texto e não volta na leitura.
   const ler = (v) => (typeof v === 'string' && v.startsWith("'") ? v.slice(1) : v);
   function criarAba(nome) {
@@ -31,14 +35,15 @@ function criarAmbiente() {
               const alvo = (linhas[l - 1 + i] ||= []);
               linha.forEach((x, j) => { alvo[c - 1 + j] = x; });
             });
+            pendentes++;
             return faixa;
           },
-          setValue(x) { (linhas[l - 1] ||= [])[c - 1] = x; return faixa; },
+          setValue(x) { (linhas[l - 1] ||= [])[c - 1] = x; pendentes++; return faixa; },
           setFontWeight: () => faixa,
         };
         return faixa;
       },
-      appendRow(v) { linhas.push([...v]); return aba; },
+      appendRow(v) { linhas.push([...v]); pendentes++; return aba; },
       setFrozenRows: () => aba,
       hideColumns: () => aba,
     };
@@ -53,9 +58,12 @@ function criarAmbiente() {
     getUrl: () => 'https://planilha.test',
   };
   const ctx = {
-    SpreadsheetApp: { getActiveSpreadsheet: () => planilha },
-    LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() {} }) },
-    MailApp: { sendEmail: (o) => emails.push(o) },
+    SpreadsheetApp: { getActiveSpreadsheet: () => planilha, flush() { pendentes = 0; } },
+    LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() { if (pendentes) violacoes.push(pendentes); } }) },
+    MailApp: { sendEmail(o) {
+      if (falhasDeEmail > 0) { falhasDeEmail--; throw new Error('Service invoked too many times for one day: email.'); }
+      emails.push(o);
+    } },
     Session: { getEffectiveUser: () => ({ getEmail: () => 'dono@exemplo.test' }) },
     ContentService: { MimeType: { JSON: 'json' }, createTextOutput: (s) => ({ texto: s, setMimeType() { return this; } }) },
     ScriptApp: {
@@ -67,11 +75,11 @@ function criarAmbiente() {
         return t;
       } }) }) }),
     },
-    console,
+    console: { log: console.log, error() {} },
   };
   vm.createContext(ctx);
   vm.runInContext(codigo, ctx);
-  return { ctx, planilha, emails, gatilhos, aba: () => planilha.getSheetByName('Formulários') };
+  return { ctx, planilha, emails, gatilhos, violacoes, falharEmails: (n) => { falhasDeEmail = n; }, aba: () => planilha.getSheetByName('Formulários') };
 }
 
 const enviar = (amb, corpo) =>
@@ -189,5 +197,36 @@ assert.deepEqual(amb5.aba().linhas[0].slice(0, 4), ['Atualizado em', 'Situação
 assert.deepEqual(amb5.aba().linhas[0].slice(-4), ['Criado em', 'Aviso enviado', 'ID', 'Seq']);
 assert.deepEqual(amb5.gatilhos.map((t) => [t.f, t.m]), [['avisarParados', 30]], 'um gatilho só, de 30 em 30 minutos');
 assert.deepEqual(JSON.parse(amb5.ctx.doGet().texto), { ok: true });
+
+// falha_de_email_tenta_de_novo: a linha fica salva e o gatilho manda o aviso pendente
+const amb6 = criarAmbiente();
+amb6.falharEmails(1);
+assert.deepEqual(enviar(amb6, { id: 'h1b2c3d4-0008', seq: 18, situacao: 'Concluído', parou: '', respostas: { ...COMPLETAS, nome: 'Fabi Nunes' } }), { ok: true }, 'a linha fica salva mesmo com o e-mail falhando');
+assert.equal(amb6.aba().getLastRow(), 2);
+assert.equal(celula(amb6, 1, 'Aviso enviado'), '', 'o aviso volta a ficar pendente');
+amb6.ctx.avisarParados();
+assert.equal(amb6.emails.length, 1, 'o gatilho manda o aviso pendente');
+assert.equal(amb6.emails[0].subject, 'Curso Full Face: formulário de Fabi Nunes');
+assert.equal(celula(amb6, 1, 'Aviso enviado'), 'Concluído');
+amb6.ctx.avisarParados();
+assert.equal(amb6.emails.length, 1, 'sem repetir depois');
+
+// falha_no_gatilho_nao_para_os_outros
+const amb7 = criarAmbiente();
+enviar(amb7, { id: 'i1b2c3d4-0009', seq: 4, situacao: 'Em andamento', parou: 'cidade', respostas: { nome: 'Gabi Prado', whatsapp: '11933332222' } });
+enviar(amb7, { id: 'j1b2c3d4-0010', seq: 4, situacao: 'Em andamento', parou: 'cidade', respostas: { nome: 'Hugo Reis', whatsapp: '11922221111' } });
+const at7 = coluna(amb7, 'Atualizado em');
+amb7.aba().linhas[1][at7] = new Date(Date.now() - 2 * 3600e3);
+amb7.aba().linhas[2][at7] = new Date(Date.now() - 2 * 3600e3);
+amb7.falharEmails(1);
+amb7.ctx.avisarParados();
+assert.equal(amb7.emails.length, 1, 'a falha de um não impede o outro');
+assert.equal(amb7.emails[0].subject, 'Curso Full Face: Hugo Reis parou no meio do formulário');
+assert.equal(celula(amb7, 1, 'Aviso enviado'), '', 'quem falhou fica pendente');
+amb7.ctx.avisarParados();
+assert.equal(amb7.emails.length, 2, 'e sai na rodada seguinte');
+
+// escrita_confirmada_antes_de_soltar_a_trava (flush antes de releaseLock em todos os cenários)
+for (const [nome, a] of Object.entries({ amb, amb2, amb3, amb4, amb6, amb7 })) assert.deepEqual(a.violacoes, [], 'trava solta com escrita pendente em ' + nome);
 
 console.log('ok: planilha confere');

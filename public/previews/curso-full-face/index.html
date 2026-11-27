@@ -329,7 +329,7 @@ textarea.campo{min-height:3.9em;resize:none;overflow:hidden;font-size:clamp(20px
     ir(prox ? k + 1 : 'fimA');
   }
 
-  // Manda o retrato atual das respostas para a planilha a partir do WhatsApp, sem esperar resposta.
+  // Manda o retrato atual das respostas para a planilha a partir do WhatsApp, em segundo plano.
   // A planilha guarda uma linha por lead (id) e fica só com o envio mais novo (seq).
   function gravar(situacao, parou) {
     if (!PLANILHA || R.whatsapp === undefined) return;
@@ -338,9 +338,9 @@ textarea.campo{min-height:3.9em;resize:none;overflow:hidden;font-size:clamp(20px
       envio.seq = (envio.seq || 0) + 1;
       try { localStorage.setItem(CHAVE_ENVIO, JSON.stringify(envio)); } catch (e) { /* sem armazenamento: segue com o id desta visita */ }
       const corpo = JSON.stringify({ id: envio.id, seq: envio.seq, situacao, parou: parou || '', respostas: R });
-      if (!(navigator.sendBeacon && navigator.sendBeacon(PLANILHA, corpo))) {
-        fetch(PLANILHA, { method: 'POST', body: corpo, mode: 'no-cors', keepalive: true }).catch(() => {});
-      }
+      // Sem cookies (credentials omit): várias contas Google logadas no navegador do lead não desviam o envio.
+      // keepalive: o envio termina mesmo se a página fechar logo depois, como quando o lead abre o WhatsApp.
+      fetch(PLANILHA, { method: 'POST', body: corpo, mode: 'no-cors', credentials: 'omit', keepalive: true }).catch(() => {});
     } catch (e) { /* o envio nunca pode travar o formulário */ }
   }
 

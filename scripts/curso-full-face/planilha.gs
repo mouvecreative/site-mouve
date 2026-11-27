@@ -34,6 +34,8 @@ function doPost(e) {
   try {
     gravar(d);
   } finally {
+    // Confirma as escritas antes de soltar a trava, senão o próximo envio pode ler a planilha sem elas.
+    SpreadsheetApp.flush();
     trava.releaseLock();
   }
   return responder({ ok: true });
@@ -76,16 +78,19 @@ function gravar(d) {
   linha[COL.Seq] = d.seq;
   const avisar = d.situacao !== 'Em andamento' && linha[COL['Aviso enviado']] !== d.situacao;
   if (avisar) linha[COL['Aviso enviado']] = d.situacao;
+  let indice = k + 2;
   if (k >= 0) {
-    aba.getRange(k + 2, 1, 1, CABECALHO.length).setValues([linha]);
+    aba.getRange(indice, 1, 1, CABECALHO.length).setValues([linha]);
   } else {
     linha[COL['Criado em']] = agora;
     aba.appendRow(linha);
+    indice = aba.getLastRow();
   }
-  if (avisar) avisarPorEmail(d.situacao, d.respostas, d.parou);
+  if (avisar) avisarLinha(aba, indice, d.situacao, d.respostas, d.parou);
 }
 
-// Gatilho de 30 em 30 minutos: avisa uma vez quem parou no meio há mais de PARADO_MINUTOS.
+// Gatilho de 30 em 30 minutos: avisa uma vez quem parou no meio há mais de PARADO_MINUTOS
+// e tenta de novo os avisos de conclusão cujo e-mail falhou.
 function avisarParados() {
   const trava = LockService.getScriptLock();
   trava.waitLock(20000);
@@ -94,16 +99,33 @@ function avisarParados() {
     if (!aba || aba.getLastRow() < 2) return;
     const limite = Date.now() - PARADO_MINUTOS * 60000;
     aba.getRange(2, 1, aba.getLastRow() - 1, CABECALHO.length).getValues().forEach((l, i) => {
-      const quando = l[COL['Atualizado em']];
-      if (l[COL['Situação']] !== 'Em andamento' || l[COL['Aviso enviado']] !== '') return;
-      if (!quando || typeof quando.getTime !== 'function' || quando.getTime() > limite) return;
+      const situacao = l[COL['Situação']];
+      if (l[COL['Aviso enviado']] !== '' || SITUACOES.indexOf(situacao) < 0) return;
+      let aviso = situacao;
+      if (situacao === 'Em andamento') {
+        const quando = l[COL['Atualizado em']];
+        if (!quando || typeof quando.getTime !== 'function' || quando.getTime() > limite) return;
+        aviso = 'Parou no meio';
+      }
       const r = {};
       CAMPOS.forEach(([id, rot]) => { if (l[COL[rot]] !== '') r[id] = String(l[COL[rot]]); });
-      aba.getRange(i + 2, COL['Aviso enviado'] + 1).setValue('Parou no meio');
-      avisarPorEmail('Parou no meio', r, l[COL['Parou em']]);
+      aba.getRange(i + 2, COL['Aviso enviado'] + 1).setValue(aviso);
+      avisarLinha(aba, i + 2, aviso, r, l[COL['Parou em']]);
     });
   } finally {
+    // Confirma as escritas antes de soltar a trava, senão o próximo envio pode ler a planilha sem elas.
+    SpreadsheetApp.flush();
     trava.releaseLock();
+  }
+}
+
+// Se o e-mail falhar (cota do dia, por exemplo), o aviso volta a ficar pendente e o gatilho tenta de novo.
+function avisarLinha(aba, indice, situacao, r, parou) {
+  try {
+    avisarPorEmail(situacao, r, parou);
+  } catch (err) {
+    console.error('E-mail não enviado: ' + err);
+    aba.getRange(indice, COL['Aviso enviado'] + 1).setValue('');
   }
 }
 
