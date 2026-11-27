@@ -120,7 +120,6 @@ textarea.campo{min-height:3.9em;resize:none;overflow:hidden;font-size:clamp(20px
 .fim{max-width:640px}
 .fim .pergunta{font-size:clamp(30px,4vw,48px)}
 .fim .ajuda{max-width:44ch;margin:20px auto 0;color:var(--perolada);text-wrap:balance}
-.miuda{max-width:44ch;margin:26px auto 0;font-size:14px;line-height:1.55;color:var(--prata);text-wrap:balance}
 
 /* Movimento: cada tela chega subindo e ganhando foco; o nome do curso se fecha como o espaçamento do logo. */
 @media (prefers-reduced-motion:no-preference){
@@ -148,6 +147,9 @@ textarea.campo{min-height:3.9em;resize:none;overflow:hidden;font-size:clamp(20px
   // Número da equipe que recebe os formulários: só dígitos, com 55 e DDD. Vazio abre o WhatsApp para escolher o contato.
   const WHATSAPP = '5531996671116';
   const CHAVE = 'fullface-aplicacao-v1';
+  // URL /exec do app da Web do Google Apps Script que grava as respostas na planilha (scripts/curso-full-face/planilha.gs). Vazia, não manda nada.
+  const PLANILHA = '';
+  const CHAVE_ENVIO = 'fullface-envio-v1';
   const PASSOS = [
     { id: 'nome', tipo: 'texto', rot: 'Nome', q: 'Qual é o seu nome completo?', ph: 'Nome e sobrenome', auto: 'name' },
     { id: 'whatsapp', tipo: 'tel', rot: 'WhatsApp', q: 'Qual é o seu WhatsApp?', ajuda: 'Com DDD. É por ele que a equipe vai falar com você.', ph: '(11) 90000-0000', auto: 'tel' },
@@ -181,6 +183,8 @@ textarea.campo{min-height:3.9em;resize:none;overflow:hidden;font-size:clamp(20px
   let R = {};
   try { R = JSON.parse(localStorage.getItem(CHAVE)) || {}; } catch (e) { R = {}; }
   const salvar = () => { try { localStorage.setItem(CHAVE, JSON.stringify(R)); } catch (e) { /* sem armazenamento: segue sem retomar */ } };
+  let envio = {};
+  try { envio = JSON.parse(localStorage.getItem(CHAVE_ENVIO)) || {}; } catch (e) { envio = {}; }
 
   let atual = 'capa';
   let toque = 0;
@@ -216,7 +220,7 @@ textarea.campo{min-height:3.9em;resize:none;overflow:hidden;font-size:clamp(20px
     const volta = Object.keys(R).length > 0;
     s.innerHTML = `<h1 class="titulo" tabindex="-1">Full Face</h1>
       <p class="sub">Formação presencial de 2 dias com o Dr. Gustavo Boaventura</p>
-      <p class="nota">As vagas passam por análise da equipe. O formulário leva cerca de 3 minutos.</p>
+      <p class="nota">As vagas passam por análise da equipe. O formulário leva cerca de 3 minutos, e suas respostas ficam salvas com a equipe do curso a cada passo, mesmo que você pare no meio.</p>
       <div class="acoes"><button class="btn" type="button">${volta ? 'Continuar de onde parei' : 'Começar'}${SETA}</button></div>`;
     s.querySelector('button').addEventListener('click', () => ir(volta ? retomar() : 0));
     return s;
@@ -318,9 +322,26 @@ textarea.campo{min-height:3.9em;resize:none;overflow:hidden;font-size:clamp(20px
     }
     R[p.id] = r.valor;
     salvar();
-    if (p.filtro && r.valor !== p.filtro) return ir('fimB');
+    if (p.filtro && r.valor !== p.filtro) { gravar('Fora da faixa'); return ir('fimB'); }
     const k = PASSOS.indexOf(p);
-    ir(k + 1 < PASSOS.length ? k + 1 : 'fimA');
+    const prox = PASSOS[k + 1];
+    gravar(prox ? 'Em andamento' : 'Concluído', prox && prox.id);
+    ir(prox ? k + 1 : 'fimA');
+  }
+
+  // Manda o retrato atual das respostas para a planilha a partir do WhatsApp, sem esperar resposta.
+  // A planilha guarda uma linha por lead (id) e fica só com o envio mais novo (seq).
+  function gravar(situacao, parou) {
+    if (!PLANILHA || R.whatsapp === undefined) return;
+    try {
+      if (!envio.id) envio.id = window.crypto && crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+      envio.seq = (envio.seq || 0) + 1;
+      try { localStorage.setItem(CHAVE_ENVIO, JSON.stringify(envio)); } catch (e) { /* sem armazenamento: segue com o id desta visita */ }
+      const corpo = JSON.stringify({ id: envio.id, seq: envio.seq, situacao, parou: parou || '', respostas: R });
+      if (!(navigator.sendBeacon && navigator.sendBeacon(PLANILHA, corpo))) {
+        fetch(PLANILHA, { method: 'POST', body: corpo, mode: 'no-cors', keepalive: true }).catch(() => {});
+      }
+    } catch (e) { /* o envio nunca pode travar o formulário */ }
   }
 
   function limpar(f) {
@@ -343,9 +364,8 @@ textarea.campo{min-height:3.9em;resize:none;overflow:hidden;font-size:clamp(20px
     s.className = 'passo fim';
     const href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensagem())}`;
     s.innerHTML = `<h1 class="pergunta" tabindex="-1">Último passo</h1>
-      <p class="ajuda">Envie suas respostas para a nossa equipe pelo WhatsApp. É por lá que confirmamos a disponibilidade de datas para os 2 dias de curso.</p>
-      <div class="acoes"><a class="btn" href="${href}" target="_blank" rel="noopener">Enviar pelo WhatsApp${SETA}</a></div>
-      <p class="miuda">As respostas só chegam à equipe pela mensagem que você enviar.</p>`;
+      <p class="ajuda">Chame a nossa equipe no WhatsApp para confirmar a disponibilidade de datas para os 2 dias de curso. Suas respostas já vão na mensagem.</p>
+      <div class="acoes"><a class="btn" href="${href}" target="_blank" rel="noopener">Enviar pelo WhatsApp${SETA}</a></div>`;
     return s;
   }
 
